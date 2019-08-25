@@ -1,0 +1,41 @@
+λv52.
+  (
+    (
+      And
+      (
+        (
+          And
+          (
+            (
+              And
+              (
+                (And (WhileIsTrue (((MapTwoListsTogether MatchPatternListOfNumbers) [N_4::N_0::N_0::N_0::N_0::N_0::N_8::N_0::N_5::End]::[[N_0::N_3::N_0::N_0::N_0::N_0::N_0::N_0::N_0::End]::[[N_0::N_0::N_0::N_7::N_0::N_0::N_0::N_0::N_0::End]::[[N_0::N_2::N_0::N_0::N_0::N_0::N_0::N_6::N_0::End]::[[N_0::N_0::N_0::N_0::N_8::N_0::N_4::N_0::N_0::End]::[[N_0::N_0::N_0::N_0::N_1::N_0::N_0::N_0::N_0::End]::[[N_0::N_0::N_0::N_6::N_0::N_3::N_0::N_7::N_0::End]::[[N_5::N_0::N_0::N_2::N_0::N_0::N_0::N_0::N_0::End]::[[N_1::N_0::N_4::N_0::N_0::N_0::N_0::N_0::N_0::End]::End]]]]]]]]) v52)))
+                (
+                  (
+                    AllTrueForEach
+                    Check9DistinctNumbers
+                  )
+                  v52
+                )
+              )
+            )
+            (
+              (
+                AllTrueForEach
+                Check9DistinctNumbers
+              )
+              (SwapGridDimensions v52)
+            )
+          )
+        )
+        (
+          (
+            AllTrueForEach
+            Check9DistinctNumbers
+          )
+          (Group3x3Squares v52)
+        )
+      )
+    )
+    (Is9x9List v52)
+  )

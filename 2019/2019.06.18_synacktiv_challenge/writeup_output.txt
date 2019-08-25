@@ -1,0 +1,114 @@
+Globvar_0 is λv226.v226
+Globvar_1 is λv224.λv225.v224
+Globvar_2 is λv223.Globvar_0
+Globvar_3 is λv220.λv221.λv222.((v220 (Globvar_1 v222)) v221)
+Globvar_4 is λv217.λv218.λv219.(v218 ((v217 v218) v219))
+Globvar_5 is (Globvar_4 Globvar_2)
+Globvar_6 is (Globvar_4 Globvar_5)
+Globvar_7 is (Globvar_4 Globvar_6)
+Globvar_8 is λv213.λv214.λv215.λv216.((v213 v215) ((v214 v215) v216))
+Globvar_9 is λv208.λv209.λv210.(((v208 λv211.λv212.(v212 (v211 v209))) (Globvar_1 v210)) Globvar_0)
+Globvar_10 is λv206.λv207.((v207 Globvar_9) v206)
+Globvar_11 is λv204.λv205.(Globvar_3 ((Globvar_10 v204) v205))
+Globvar_12 is λv201.λv202.λv203.(v201 (v202 v203))
+Globvar_13 is ((Globvar_12 Globvar_7) Globvar_7)
+Globvar_14 is λv199.λv200.v199
+Globvar_15 is λv197.λv198.v198
+Globvar_16 is λv193.λv194.λv195.λv196.((v193 ((v194 v195) v196)) v196)
+Globvar_17 is λv189.λv190.λv191.λv192.((v189 v191) ((v190 v191) v192))
+Globvar_18 is λv186.λv187.λv188.((v186 v188) v187)
+Globvar_19 is λv184.λv185.((Globvar_16 ((Globvar_11 v184) v185)) ((Globvar_11 v185) v184))
+Globvar_20 is λv182.λv183.v183
+Globvar_21 is λv178.λv179.λv180.λv181.((v180 v178) v179)
+Globvar_22 is λv177.(v177 Globvar_1)
+Globvar_23 is λv174.((v174 λv175.λv176.v176) Globvar_20)
+Globvar_24 is λv171.((v171 λv172.λv173.Globvar_15) Globvar_14)
+Globvar_25 is (λv164.(λv165.(v165 v165) λv166.(v164 (v166 v166))) λv167.λv168.((v168 λv169.λv170.(Globvar_4 (v167 v170))) Globvar_2))
+Globvar_26 is (λv156.(λv157.(v157 v157) λv158.(v156 (v158 v158))) λv159.λv160.λv161.((v161 λv162.λv163.((Globvar_21 (v160 v162)) ((v159 v160) v163))) Globvar_20))
+Globvar_27 is (λv148.(λv149.(v149 v149) λv150.(v148 (v150 v150))) λv151.λv152.λv153.((v152 λv154.λv155.((Globvar_21 v154) ((v151 v155) v153))) v153))
+Globvar_28 is (λv139.(λv140.(v140 v140) λv141.(v139 (v141 v141))) λv142.λv143.λv144.λv145.((v145 λv146.λv147.((v143 v146) (((v142 v143) v144) v147))) v144))
+Globvar_29 is ((Globvar_28 Globvar_27) Globvar_20)
+Globvar_30 is (λv128.(λv129.(v129 v129) λv130.(v128 (v130 v130))) λv131.λv132.λv133.λv134.((v133 λv135.λv136.((v134 λv137.λv138.((Globvar_21 ((v132 v135) v137)) (((v131 v132) v136) v138))) Globvar_20)) Globvar_20))
+Globvar_31 is λv126.λv127.((v126 (Globvar_21 v127)) Globvar_20)
+Globvar_32 is λv123.((Globvar_28 λv124.λv125.((Globvar_16 (v123 v124)) v125)) Globvar_14)
+Globvar_33 is λv121.λv122.v122
+Globvar_34 is λv116.λv117.λv118.λv119.λv120.(((v119 v116) v117) v118)
+Globvar_35 is (λv107.(λv108.(v108 v108) λv109.(v107 (v109 v109))) λv110.λv111.λv112.((v112 λv113.λv114.λv115.((((Globvar_11 v111) v114) (((Globvar_34 ((v110 v111) v113)) v114) v115)) (((Globvar_34 v113) v114) ((v110 v111) v115)))) (((Globvar_34 Globvar_33) v111) Globvar_33)))
+Globvar_36 is (λv98.(λv99.(v99 v99) λv100.(v98 (v100 v100))) λv101.λv102.λv103.((v103 λv104.λv105.λv106.((((Globvar_19 v102) v105) Globvar_14) ((((Globvar_11 v102) v105) ((v101 v102) v104)) ((v101 v102) v106)))) Globvar_15))
+Globvar_37 is (λv90.(λv91.(v91 v91) λv92.(v90 (v92 v92))) λv93.λv94.((v94 λv95.λv96.λv97.(Globvar_4 ((Globvar_8 (v93 v95)) (v93 v97)))) Globvar_2))
+Globvar_38 is (λv82.(λv83.(v83 v83) λv84.(v82 (v84 v84))) λv85.λv86.λv87.((v87 λv88.λv89.((((Globvar_36 v88) v86) Globvar_15) ((v85 ((Globvar_35 v88) v86)) v89))) ((Globvar_19 (Globvar_37 v86)) Globvar_13)))
+Globvar_39 is (λv74.(λv75.(v75 v75) λv76.(v74 (v76 v76))) λv77.λv78.λv79.((v79 λv80.λv81.((((Globvar_36 v80) v78) v78) ((v77 ((Globvar_35 v80) v78)) v81))) v78))
+Globvar_40 is (Globvar_38 Globvar_33)
+Globvar_41 is λv73.(((Globvar_28 (Globvar_30 Globvar_21)) ((Globvar_31 (Globvar_25 ((Globvar_22 v73) Globvar_20))) Globvar_20)) v73)
+Globvar_42 is (λv62.(λv63.(v63 v63) λv64.(v62 (v64 v64))) λv65.λv66.((v66 λv67.λv68.((v68 λv69.λv70.((v70 λv71.λv72.((Globvar_21 ((Globvar_21 v67) ((Globvar_21 v69) ((Globvar_21 v71) Globvar_20)))) (v65 v72))) ((Globvar_21 ((Globvar_21 v67) ((Globvar_21 v69) Globvar_20))) Globvar_20))) ((Globvar_21 ((Globvar_21 v67) Globvar_20)) Globvar_20))) Globvar_20))
+Globvar_43 is λv61.((Globvar_19 (Globvar_25 v61)) Globvar_13)
+Globvar_44 is λv60.((Globvar_16 (Globvar_43 v60)) ((Globvar_32 Globvar_43) v60))
+Globvar_45 is λv59.((Globvar_26 Globvar_29) (Globvar_29 ((Globvar_26 Globvar_42) (Globvar_41 ((Globvar_26 Globvar_42) v59)))))
+Globvar_46 is λv57.λv58.((Globvar_16 ((Globvar_16 (Globvar_18 (Globvar_3 v58))) ((Globvar_11 v58) Globvar_13))) ((Globvar_17 (Globvar_3 v57)) ((Globvar_19 v57) v58)))
+Globvar_47 is λv55.λv56.((Globvar_32 Globvar_0) (((Globvar_30 Globvar_46) v55) v56))
+Globvar_48 is λv53.λv54.((Globvar_32 Globvar_40) v54)
+Globvar_49 is ((Globvar_28 Globvar_8) Globvar_2)
+Globvar_50 is λv51.λv52.((Globvar_16 ((Globvar_16 ((Globvar_16 ((Globvar_16 ((Globvar_32 Globvar_0) (((Globvar_30 Globvar_47) v51) v52))) ((Globvar_32 Globvar_40) v52))) ((Globvar_32 Globvar_40) (Globvar_41 v52)))) ((Globvar_32 Globvar_40) (Globvar_45 v52)))) (Globvar_44 v52))
+
+------------------------------------------------------------
+
+* Globvar_0 is λv226.v226 = Identity
+* Globvar_1 is λv224.λv225.v224 = True
+* Globvar_2 is λv223.Identity = False
+* Globvar_3 is λv220.λv221.λv222.((v220 (True v222)) v221) = IsZero
+* Globvar_4 is λv217.λv218.λv219.(v218 ((v217 v218) v219)) = Succ
+* Globvar_5 is (Succ False) = Number_1
+* Globvar_6 is (Succ Number_1) = Number_2
+* Globvar_7 is (Succ Number_2) = Number_3
+* Globvar_8 is λv213.λv214.λv215.λv216.((v213 v215) ((v214 v215) v216)) = Or
+* Globvar_9 is λv208.λv209.λv210.(((v208 λv211.λv212.(v212 (v211 v209))) (True v210)) Identity) = Pred
+* Globvar_10 is λv206.λv207.((v207 Pred) v206) = Minus
+* Globvar_11 is λv204.λv205.(IsZero ((Minus v204) v205)) = LEQ
+* Globvar_12 is λv201.λv202.λv203.(v201 (v202 v203)) = Mult
+* Globvar_13 is ((Mult Number_3) Number_3) = Number_9
+* Globvar_14 is λv199.λv200.v199 = True
+* Globvar_15 is λv197.λv198.v198 = False
+* Globvar_16 is λv193.λv194.λv195.λv196.((v193 ((v194 v195) v196)) v196) = And
+* Globvar_17 is λv189.λv190.λv191.λv192.((v189 v191) ((v190 v191) v192)) = Or
+* Globvar_18 is λv186.λv187.λv188.((v186 v188) v187) = Not
+* Globvar_19 is λv184.λv185.((And ((LEQ v184) v185)) ((LEQ v185) v184)) = EQ
+* Globvar_20 is λv182.λv183.v183 = False
+* Globvar_21 is λv178.λv179.λv180.λv181.((v180 v178) v179) = Cons
+* Globvar_22 is λv177.(v177 True) = Head
+* Globvar_23 is λv174.((v174 λv175.λv176.v176) False) = Tail
+* Globvar_24 is λv171.((v171 λv172.λv173.False) True) = IsListEmpty
+* Globvar_25 is (λv164.(λv165.(v165 v165) λv166.(v164 (v166 v166))) λv167.λv168.((v168 λv169.λv170.(Succ (v167 v170))) False)) = Length
+* Globvar_26 is (λv156.(λv157.(v157 v157) λv158.(v156 (v158 v158))) λv159.λv160.λv161.((v161 λv162.λv163.((Cons (v160 v162)) ((v159 v160) v163))) False)) = Map
+* Globvar_27 is (λv148.(λv149.(v149 v149) λv150.(v148 (v150 v150))) λv151.λv152.λv153.((v152 λv154.λv155.((Cons v154) ((v151 v155) v153))) v153)) = Concat
+* Globvar_28 is (λv139.(λv140.(v140 v140) λv141.(v139 (v141 v141))) λv142.λv143.λv144.λv145.((v145 λv146.λv147.((v143 v146) (((v142 v143) v144) v147))) v144)) = Reduce
+* Globvar_29 is ((Reduce Concat) False) = Flatten2DList
+* Globvar_30 is (λv128.(λv129.(v129 v129) λv130.(v128 (v130 v130))) λv131.λv132.λv133.λv134.((v133 λv135.λv136.((v134 λv137.λv138.((Cons ((v132 v135) v137)) (((v131 v132) v136) v138))) False)) False)) = MapTwoListsTogether
+* Globvar_31 is λv126.λv127.((v126 (Cons v127)) False) = Repeat
+* Globvar_32 is λv123.((Reduce λv124.λv125.((And (v123 v124)) v125)) True) = AllTrueForEach
+* Globvar_33 is λv121.λv122.v122 = False
+* Globvar_34 is λv116.λv117.λv118.λv119.λv120.(((v119 v116) v117) v118) = ConsTree
+* Globvar_35 is (λv107.(λv108.(v108 v108) λv109.(v107 (v109 v109))) λv110.λv111.λv112.((v112 λv113.λv114.λv115.((((LEQ v111) v114) (((ConsTree ((v110 v111) v113)) v114) v115)) (((ConsTree v113) v114) ((v110 v111) v115)))) (((ConsTree False) v111) False))) = InsertInTree
+* Globvar_36 is (λv98.(λv99.(v99 v99) λv100.(v98 (v100 v100))) λv101.λv102.λv103.((v103 λv104.λv105.λv106.((((EQ v102) v105) True) ((((LEQ v102) v105) ((v101 v102) v104)) ((v101 v102) v106)))) False)) = IsInTree
+* Globvar_37 is (λv90.(λv91.(v91 v91) λv92.(v90 (v92 v92))) λv93.λv94.((v94 λv95.λv96.λv97.(Succ ((Or (v93 v95)) (v93 v97)))) False)) = TreeLength
+* Globvar_38 is (λv82.(λv83.(v83 v83) λv84.(v82 (v84 v84))) λv85.λv86.λv87.((v87 λv88.λv89.((((IsInTree v88) v86) False) ((v85 ((InsertInTree v88) v86)) v89))) ((EQ (TreeLength v86)) Number_9))) = FillTreeFromListAndCheck9
+* Globvar_39 is (λv74.(λv75.(v75 v75) λv76.(v74 (v76 v76))) λv77.λv78.λv79.((v79 λv80.λv81.((((IsInTree v80) v78) v78) ((v77 ((InsertInTree v80) v78)) v81))) v78)) = FillTreeFromList
+* Globvar_40 is (FillTreeFromListAndCheck9 False) = Check9DistinctNumbers
+* Globvar_41 is λv73.(((Reduce (MapTwoListsTogether Cons)) ((Repeat (Length ((Head v73) False))) False)) v73) = SwapGridDimensions
+* Globvar_42 is (λv62.(λv63.(v63 v63) λv64.(v62 (v64 v64))) λv65.λv66.((v66 λv67.λv68.((v68 λv69.λv70.((v70 λv71.λv72.((Cons ((Cons v67) ((Cons v69) ((Cons v71) False)))) (v65 v72))) ((Cons ((Cons v67) ((Cons v69) False))) False))) ((Cons ((Cons v67) False)) False))) False)) = SplitListIn3ItemsList
+* Globvar_43 is λv61.((EQ (Length v61)) Number_9) = IsLength9
+* Globvar_44 is λv60.((And (IsLength9 v60)) ((AllTrueForEach IsLength9) v60)) = Is9x9List
+* Globvar_45 is λv59.((Map Flatten2DList) (Flatten2DList ((Map SplitListIn3ItemsList) (SwapGridDimensions ((Map SplitListIn3ItemsList) v59))))) = Group3x3Squares
+* Globvar_46 is λv57.λv58.((And ((And (Not (IsZero v58))) ((LEQ v58) Number_9))) ((Or (IsZero v57)) ((EQ v57) v58))) = [x,y→0<y<=9&&(x==0||x==y)]
+* Globvar_47 is λv55.λv56.((AllTrueForEach Identity) (((MapTwoListsTogether [x,y→0<y<=9&&(x==0||x==y)]) v55) v56)) = MatchPatternListOfNumbers
+* Globvar_48 is λv53.λv54.((AllTrueForEach Check9DistinctNumbers) v54) = λv53.λv54.((AllTrueForEach Check9DistinctNumbers) v54)
+* Globvar_49 is ((Reduce Or) False) = ((Reduce Or) False)
+* Globvar_50 is λv51.λv52.((And ((And ((And ((And ((AllTrueForEach Identity) (((MapTwoListsTogether MatchPatternListOfNumbers) v51) v52))) ((AllTrueForEach Check9DistinctNumbers) v52))) ((AllTrueForEach Check9DistinctNumbers) (SwapGridDimensions v52)))) ((AllTrueForEach Check9DistinctNumbers) (Group3x3Squares v52)))) (Is9x9List v52)) = λv51.λv52.((And ((And ((And ((And (WhileIsTrue (((MapTwoListsTogether MatchPatternListOfNumbers) v51) v52))) ((AllTrueForEach Check9DistinctNumbers) v52))) ((AllTrueForEach Check9DistinctNumbers) (SwapGridDimensions v52)))) ((AllTrueForEach Check9DistinctNumbers) (Group3x3Squares v52)))) (Is9x9List v52))
+
+------------------------------------------------------------
+
+Main is (Globvar_50 λv227.λv228.((v227 λv229.λv230.((v229 λv231.λv232.(v231 (v231 (v231 (v231 v232))))) λv233.λv234.((v233 λv235.λv236.v236) λv237.λv238.((v237 λv239.λv240.v240) λv241.λv242.((v241 λv243.λv244.v244) λv245.λv246.((v245 λv247.λv248.v248) λv249.λv250.((v249 λv251.λv252.v252) λv253.λv254.((v253 λv255.λv256.(v255 (v255 (v255 (v255 (v255 (v255 (v255 (v255 v256))))))))) λv257.λv258.((v257 λv259.λv260.v260) λv261.λv262.((v261 λv263.λv264.(v263 (v263 (v263 (v263 (v263 v264)))))) λv265.λv266.v266)))))))))) λv267.λv268.((v267 λv269.λv270.((v269 λv271.λv272.v272) λv273.λv274.((v273 λv275.λv276.(v275 (v275 (v275 v276)))) λv277.λv278.((v277 λv279.λv280.v280) λv281.λv282.((v281 λv283.λv284.v284) λv285.λv286.((v285 λv287.λv288.v288) λv289.λv290.((v289 λv291.λv292.v292) λv293.λv294.((v293 λv295.λv296.v296) λv297.λv298.((v297 λv299.λv300.v300) λv301.λv302.((v301 λv303.λv304.v304) λv305.λv306.v306)))))))))) λv307.λv308.((v307 λv309.λv310.((v309 λv311.λv312.v312) λv313.λv314.((v313 λv315.λv316.v316) λv317.λv318.((v317 λv319.λv320.v320) λv321.λv322.((v321 λv323.λv324.(v323 (v323 (v323 (v323 (v323 (v323 (v323 v324)))))))) λv325.λv326.((v325 λv327.λv328.v328) λv329.λv330.((v329 λv331.λv332.v332) λv333.λv334.((v333 λv335.λv336.v336) λv337.λv338.((v337 λv339.λv340.v340) λv341.λv342.((v341 λv343.λv344.v344) λv345.λv346.v346)))))))))) λv347.λv348.((v347 λv349.λv350.((v349 λv351.λv352.v352) λv353.λv354.((v353 λv355.λv356.(v355 (v355 v356))) λv357.λv358.((v357 λv359.λv360.v360) λv361.λv362.((v361 λv363.λv364.v364) λv365.λv366.((v365 λv367.λv368.v368) λv369.λv370.((v369 λv371.λv372.v372) λv373.λv374.((v373 λv375.λv376.v376) λv377.λv378.((v377 λv379.λv380.(v379 (v379 (v379 (v379 (v379 (v379 v380))))))) λv381.λv382.((v381 λv383.λv384.v384) λv385.λv386.v386)))))))))) λv387.λv388.((v387 λv389.λv390.((v389 λv391.λv392.v392) λv393.λv394.((v393 λv395.λv396.v396) λv397.λv398.((v397 λv399.λv400.v400) λv401.λv402.((v401 λv403.λv404.v404) λv405.λv406.((v405 λv407.λv408.(v407 (v407 (v407 (v407 (v407 (v407 (v407 (v407 v408))))))))) λv409.λv410.((v409 λv411.λv412.v412) λv413.λv414.((v413 λv415.λv416.(v415 (v415 (v415 (v415 v416))))) λv417.λv418.((v417 λv419.λv420.v420) λv421.λv422.((v421 λv423.λv424.v424) λv425.λv426.v426)))))))))) λv427.λv428.((v427 λv429.λv430.((v429 λv431.λv432.v432) λv433.λv434.((v433 λv435.λv436.v436) λv437.λv438.((v437 λv439.λv440.v440) λv441.λv442.((v441 λv443.λv444.v444) λv445.λv446.((v445 λv447.λv448.(v447 v448)) λv449.λv450.((v449 λv451.λv452.v452) λv453.λv454.((v453 λv455.λv456.v456) λv457.λv458.((v457 λv459.λv460.v460) λv461.λv462.((v461 λv463.λv464.v464) λv465.λv466.v466)))))))))) λv467.λv468.((v467 λv469.λv470.((v469 λv471.λv472.v472) λv473.λv474.((v473 λv475.λv476.v476) λv477.λv478.((v477 λv479.λv480.v480) λv481.λv482.((v481 λv483.λv484.(v483 (v483 (v483 (v483 (v483 (v483 v484))))))) λv485.λv486.((v485 λv487.λv488.v488) λv489.λv490.((v489 λv491.λv492.(v491 (v491 (v491 v492)))) λv493.λv494.((v493 λv495.λv496.v496) λv497.λv498.((v497 λv499.λv500.(v499 (v499 (v499 (v499 (v499 (v499 (v499 v500)))))))) λv501.λv502.((v501 λv503.λv504.v504) λv505.λv506.v506)))))))))) λv507.λv508.((v507 λv509.λv510.((v509 λv511.λv512.(v511 (v511 (v511 (v511 (v511 v512)))))) λv513.λv514.((v513 λv515.λv516.v516) λv517.λv518.((v517 λv519.λv520.v520) λv521.λv522.((v521 λv523.λv524.(v523 (v523 v524))) λv525.λv526.((v525 λv527.λv528.v528) λv529.λv530.((v529 λv531.λv532.v532) λv533.λv534.((v533 λv535.λv536.v536) λv537.λv538.((v537 λv539.λv540.v540) λv541.λv542.((v541 λv543.λv544.v544) λv545.λv546.v546)))))))))) λv547.λv548.((v547 λv549.λv550.((v549 λv551.λv552.(v551 v552)) λv553.λv554.((v553 λv555.λv556.v556) λv557.λv558.((v557 λv559.λv560.(v559 (v559 (v559 (v559 v560))))) λv561.λv562.((v561 λv563.λv564.v564) λv565.λv566.((v565 λv567.λv568.v568) λv569.λv570.((v569 λv571.λv572.v572) λv573.λv574.((v573 λv575.λv576.v576) λv577.λv578.((v577 λv579.λv580.v580) λv581.λv582.((v581 λv583.λv584.v584) λv585.λv586.v586)))))))))) λv587.λv588.v588))))))))))
+
+Simplified main is (Globvar_50 [N_4::N_0::N_0::N_0::N_0::N_0::N_8::N_0::N_5::End]::[[N_0::N_3::N_0::N_0::N_0::N_0::N_0::N_0::N_0::End]::[[N_0::N_0::N_0::N_7::N_0::N_0::N_0::N_0::N_0::End]::[[N_0::N_2::N_0::N_0::N_0::N_0::N_0::N_6::N_0::End]::[[N_0::N_0::N_0::N_0::N_8::N_0::N_4::N_0::N_0::End]::[[N_0::N_0::N_0::N_0::N_1::N_0::N_0::N_0::N_0::End]::[[N_0::N_0::N_0::N_6::N_0::N_3::N_0::N_7::N_0::End]::[[N_5::N_0::N_0::N_2::N_0::N_0::N_0::N_0::N_0::End]::[[N_1::N_0::N_4::N_0::N_0::N_0::N_0::N_0::N_0::End]::End]]]]]]]])
+0100010001000100010001000100010001000100010001011111111111100101111111111110111110010111111111111011001011111111111101111111100101111111111110111100101111111111110111111100101111111111110111111111100101111111111110111111111001011111111111101110010111111111111011111100000100101111111111110010111111111111011111110010111111111111011110010111111111111011100101111111111110110010111111111111011111100101111111111110111111111001011111111111101111111111001011111111111101111100101111111111110111111110000010010111111111111001011111111111101111111111001011111111111101111110010111111111111011111111100101111111111110111111110010111111111111011100101111111111110111110010111111111111011110010111111111111011001011111111111101111111000001001011111111111100101111111111110111111111001011111111111101110010111111111111011111100101111111111110111110010111111111111011110010111111111111011111111001011111111111101100101111111111110111111100101111111111110111111111100000100101111111111110010111111111111011111111001011111111111101111111111001011111111111101100101111111111110111111001011111111111101111111110010111111111111011111110010111111111111011111001011111111111101111001011111111111101110000010010111111111111001011111111111101111001011111111111101111100101111111111110111111100101111111111110111111111100101111111111110110010111111111111011100101111111111110111111110010111111111111011111100101111111111110111111111000001001011111111111100101111111111110111001011111111111101111111110010111111111111011111111110010111111111111011111110010111111111111011111001011111111111101111001011111111111101111110010111111111111011111111001011111111111101100000100101111111111110010111111111111011111100101111111111110111111110010111111111111011110010111111111111011100101111111111110111111111100101111111111110110010111111111111011111110010111111111111011111111100101111111111110111110000010010111111111111001011111111111101100101111111111110111111100101111111111110111110010111111111111011111111100101111111111110111111110010111111111111011111100101111111111110111001011111111111101111111111001011111111111101111000001010000010010000000111001011110110100000100100000001110010111101101001000000011100101111011010000010010000000111001011110110100100000001110010111101101001000000011100101111011010000010010000000111001011110110100100000001110010111101101001000000011100101111011010010000000111001011110110100000100100000001110010111101101001000000011100101111011010010000000111001011110110100100000001110010111101101001000000011100101111011010000010010100000000010111110011110110100100000001110010111101101001000000011100101111011010000010010000000111001011110110100100000001110010111101101001000000011100101111011010000010010000000111001011110110100101000000000101111100111101101001000000011100101111011010010000000111001011110110100000100100000001110010111101101001000000011100101111011010010000000111001011110110100000100101000000000101111100111101101001000000011100101111011010010000000111001011110110100000100100000001110010111101101001000000011100101111011010010000000111001011110110100100000001110010111101101000001001010000000001011111001111011010010000000111001011110110100100000001110010111101101001000000011100101111011010000010010000000111001011110110100100000001110010111101101001000000011100101111011010000010000000000101110111101110
+λv0.λv1.((v0 ((Cons Number_4) ((Cons Number_1) ((Cons (Succ λv38.λv39.((Number_2 (Number_3 v38)) v39))) ((Cons Number_3) ((Cons λv80.λv81.((Number_2 (Number_3 v80)) v81)) ((Cons λv107.λv108.((Number_3 (Number_3 v107)) v108)) ((Cons λv137.λv138.((Number_2 (Number_4 v137)) v138)) ((Cons Number_2) ((Cons Number_5) False)))))))))) ((Cons ((Cons λv206.λv207.((Number_2 (Number_3 v206)) v207)) ((Cons Number_3) ((Cons Number_2) ((Cons Number_1) ((Cons Number_5) ((Cons λv290.λv291.((Number_2 (Number_4 v290)) v291)) ((Cons λv320.λv321.((Number_3 (Number_3 v320)) v321)) ((Cons Number_4) ((Cons (Succ λv371.λv372.((Number_2 (Number_3 v371)) v372))) False)))))))))) ((Cons ((Cons λv404.λv405.((Number_3 (Number_3 v404)) v405)) ((Cons Number_5) ((Cons λv455.λv456.((Number_2 (Number_4 v455)) v456)) ((Cons (Succ λv488.λv489.((Number_2 (Number_3 v488)) v489))) ((Cons Number_2) ((Cons Number_4) ((Cons Number_3) ((Cons Number_1) ((Cons λv569.λv570.((Number_2 (Number_3 v569)) v570)) False)))))))))) ((Cons ((Cons λv602.λv603.((Number_2 (Number_4 v602)) v603)) ((Cons Number_2) ((Cons Number_5) ((Cons Number_4) ((Cons Number_3) ((Cons (Succ λv701.λv702.((Number_2 (Number_3 v701)) v702))) ((Cons Number_1) ((Cons λv737.λv738.((Number_2 (Number_3 v737)) v738)) ((Cons λv764.λv765.((Number_3 (Number_3 v764)) v765)) False)))))))))) ((Cons ((Cons (Succ λv803.λv804.((Number_2 (Number_3 v803)) v804))) ((Cons λv830.λv831.((Number_3 (Number_3 v830)) v831)) ((Cons Number_1) ((Cons Number_5) ((Cons λv890.λv891.((Number_2 (Number_4 v890)) v891)) ((Cons λv920.λv921.((Number_2 (Number_3 v920)) v921)) ((Cons Number_4) ((Cons Number_3) ((Cons Number_2) False)))))))))) ((Cons ((Cons Number_3) ((Cons Number_4) ((Cons λv1031.λv1032.((Number_2 (Number_3 v1031)) v1032)) ((Cons λv1058.λv1059.((Number_3 (Number_3 v1058)) v1059)) ((Cons Number_1) ((Cons Number_2) ((Cons (Succ λv1112.λv1113.((Number_2 (Number_3 v1112)) v1113))) ((Cons Number_5) ((Cons λv1160.λv1161.((Number_2 (Number_4 v1160)) v1161)) False)))))))))) ((Cons ((Cons Number_2) ((Cons λv1208.λv1209.((Number_2 (Number_4 v1208)) v1209)) ((Cons λv1238.λv1239.((Number_3 (Number_3 v1238)) v1239)) ((Cons λv1268.λv1269.((Number_2 (Number_3 v1268)) v1269)) ((Cons Number_4) ((Cons Number_3) ((Cons Number_5) ((Cons (Succ λv1352.λv1353.((Number_2 (Number_3 v1352)) v1353))) ((Cons Number_1) False)))))))))) ((Cons ((Cons Number_5) ((Cons (Succ λv1418.λv1419.((Number_2 (Number_3 v1418)) v1419))) ((Cons Number_3) ((Cons Number_2) ((Cons λv1472.λv1473.((Number_3 (Number_3 v1472)) v1473)) ((Cons Number_1) ((Cons λv1511.λv1512.((Number_2 (Number_3 v1511)) v1512)) ((Cons λv1538.λv1539.((Number_2 (Number_4 v1538)) v1539)) ((Cons Number_4) False)))))))))) ((Cons ((Cons Number_1) ((Cons λv1601.λv1602.((Number_2 (Number_3 v1601)) v1602)) ((Cons Number_4) ((Cons λv1646.λv1647.((Number_2 (Number_4 v1646)) v1647)) ((Cons (Succ λv1679.λv1680.((Number_2 (Number_3 v1679)) v1680))) ((Cons Number_5) ((Cons Number_2) ((Cons λv1739.λv1740.((Number_3 (Number_3 v1739)) v1740)) ((Cons Number_3) False)))))))))) False)))))))))
+Output: 3331 bytes
