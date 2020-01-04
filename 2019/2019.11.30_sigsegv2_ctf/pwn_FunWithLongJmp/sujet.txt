@@ -1,0 +1,12 @@
+FunWithLongJmp
+500
+[FR]
+Auteur : laxa
+Difficulté estimée : difficile
+
+Description :
+Try to pwn me
+
+finale-challs.rtfm.re:6666
+[EN]
+Author: laxa

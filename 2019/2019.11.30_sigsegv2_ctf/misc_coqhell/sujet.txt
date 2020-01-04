@@ -1,0 +1,17 @@
+Coqhell
+500
+[FR]
+Auteur : SIben Difficulté estimée : facile
+
+Description :
+Prouve-moi formellement que tu mérites le flag.
+
+https://finale-challs.rtfm.re:50004
+
+[EN]
+Author: SIben Estimated difficulty: easy
+
+Description :
+Please formally prove you deserve the flag.
+
+https://finale-challs.rtfm.re:50004

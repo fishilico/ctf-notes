@@ -1,0 +1,8 @@
+Schrödinger's flag
+500
+[FR] Auteur : h25 Difficulté estimée : Moyenne
+
+Description :
+Ce challenge simule une distribution de clé quantique BB84 où vous pouvez intercepter des qubits. Exploitez-la !
+
+finale-challs.rtfm.re:50011

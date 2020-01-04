@@ -1,0 +1,13 @@
+FR]
+Auteur : SIben Difficulté estimée : facile
+
+Description : J'ai entendu que t'avais pas besoin de r dans la première version du challenge ? Et maintenant ?
+
+http://finale-challs.rtfm.re:9002
+[EN]
+Author: SIben
+Estimated difficulty: easy
+
+Description: Heard you didn't need r to solve the first version of the challenge? How about now?
+
+http://finale-challs.rtfm.re:9002

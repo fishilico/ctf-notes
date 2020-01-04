@@ -1,0 +1,62 @@
+[FR]
+Auteur : Alkanor
+Difficulté estimée : Moyenne (niveau 1)/Difficile (niveau 2)
+
+Description :
+Niveau 1: "Notre service de factorisation en nombres premiers s'est un peu emballé et commence à générer des chaînes de caractères bizarres. Pouvez-vous le réparer ?"
+Niveau 2: "Le service de factorisation a malheureusement détecté vos tentatives pour retrouver la valeur de ses chaînes de caractères. Il a décidé de vous complexifier la tâche."
+
+Niveau 1 : finale-challs.rtfm.re:5555 Niveau 2 : finale-challs.rtfm.re:5557
+
+[EN]
+Author : Alkanor
+Estimated difficulty: Medium (level 1)/Hard (level 2)
+
+Description :
+Level 1: "Our last generation prime factorization service has become crazy and it started to generate weird random strings. Are you able to fix it ?"
+Level 2: "The factorization service has detected your attempts to find back the real string values. He decided to make your life a hell"
+
+Level 1: finale-challs.rtfm.re:5556 Level 2: finale-challs.rtfm.re:5558
+
+
+$ socat - TCP:finale-challs.rtfm.re:5555
+~~~~~~~ Super service de factorisation à ton service ~~~~~~~
+Tu peux demander des factorisations quelconques dans un espace un peu particulier
+Pour cela, tu pourras rentrer lignes par ligne des expressions comme suivre_une_raison_contente_et_demander_une_pierre_drôle-3
+L'expression indiquée correspond à un nombre entre 2 et 11964192, à la puissance 3
+Chaque ligne X-n que tu ajoutes est une multiplication supplémentaire par X^n
+Puis quand tu as fini, tu obtiens la décomposition en facteurs premiers du produit
+
+Pour obtenir le flag, tu dois répondre à la question suivante :
+Combien de aller_une_confiance_super_et_chercher_une_ville_rouge y a-t-il dans tenir_une_oreille_possible_et_vouloir_un_colonel_pareil ?
+Bon chance (tu as droit à 1500 requêtes)
+
+Quoi faire ?
+[+] 1 - Décomposer un produit
+[+] 2 - Demander le flag
+[.] 3 - Quitter
+1
+Tes lignes x-n pour le produit des x^n ? (ligne vide pour finir)
+dz
+Arf, ça n'est pas le bon format et ta ligne précédente n'a pas été prise en compte
+q
+Arf, ça n'est pas le bon format et ta ligne précédente n'a pas été prise en compte
+d
+Arf, ça n'est pas le bon format et ta ligne précédente n'a pas été prise en compte
+1
+Arf, ça n'est pas le bon format et ta ligne précédente n'a pas été prise en compte
+2
+Arf, ça n'est pas le bon format et ta ligne précédente n'a pas été prise en compte
+3
+Arf, ça n'est pas le bon format et ta ligne précédente n'a pas été prise en compte
+4
+Arf, ça n'est pas le bon format et ta ligne précédente n'a pas été prise en compte
+
+Voilà ta décomposition :
+ (mod P) = 
+Quoi faire ?
+[+] 1 - Décomposer un produit
+[+] 2 - Demander le flag
+[.] 3 - Quitter
+2
+Alors tu as trouvé combien de aller_une_confiance_super_et_chercher_une_ville_rouge il y avait dans tenir_une_oreille_possible_et_vouloir_un_colonel_pareil ?
