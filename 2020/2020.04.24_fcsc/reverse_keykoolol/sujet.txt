@@ -1,0 +1,8 @@
+Keykoolol
+500
+
+On vous demande d'écrire un générateur d'entrées valides pour ce binaire, puis de le valider sur les entrées fournies par le service distant afin d'obtenir le flag.
+
+Service : nc challenges2.france-cybersecurity-challenge.fr 3000
+
+SHA256(keykoolol) = 422f0908ff251f636d37245fd5b867a753a3fd8ee5f614ef614d54011d407987

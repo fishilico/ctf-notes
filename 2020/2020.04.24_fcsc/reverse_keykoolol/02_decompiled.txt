@@ -1,0 +1,205 @@
+init :
+    r8 = offset user (copied into data)
+    r9 = strlen(user)
+    r10 = offset serial (copied into data)
+    r11 = strlen(serial)
+    r12 = offset after serial
+
+[0000] 17b0186e  r11 -= 0x1
+[0008] 0a000074  if(r11 != 0xff) exit(0)
+
+[000c] 000a5237  r0 = r10                   // r0 = serial
+[0010] 001c9598  r1 = r12                   // r1 = RAM
+[0014] 06000374  call 0374                  // MEM[@r1] = unhexlify(MEM[@r0], until \0) ; return 1 if success
+[001c] 0a000074  if(r0 != 1) exit(0)
+
+[0020] 00089e3f  r0 = r8                // r0 = user
+[0024] 001c9456  r1 = r12
+[0028] 0c1806ad  r1 += 0x80             // r1 = RAM + 0x80
+[002c] 02200fc6  r2 = 0x0               // r2 = 0
+[0030] 06000288  call 0288              // hash of user
+
+[0034] 000c9789  r0 = r12
+[0038] 0c08027c  r0 += 0x80             // r0 = RAM + 0x80 = ctx
+[003c] 001c73c9  r1 = r12
+[0040] 0c19005b  r1 += 0x90             // r1 = RAM + 0x90
+[0044] 0600007c  call 007c              // loop "*3,^0xff" for 0x50 bytes
+
+[0048] 000c1bfa  r0 = r12               // r0 = RAM
+[004c] 001001f7  r1 = r0
+[0050] 0c1ff3a7  r1 += 0xff
+[0054] 0c10194b  r1 += 0x1              // r1 = RAM + 0x100
+[0058] 060000fc  call 00fc              // AES encrypt (1 round)
+
+[005c] 000c415a  r0 = r12               // r0 = RAM
+[0060] 001c9509  r1 = r12
+[0064] 0c18088e  r1 += 0x80             // r1 = hash of user
+[0068] 02260b28  r2 = 0x60              // r2 = 0x60
+[006c] 060002e8  call 02e8              // is_equal(mem@r0, mem@r1, size=r2)
+[0070] ff7b3464  exit
+
+
+[0074] 02000c05  r0 = 0x0
+[0078] ff68b4af  exit
+
+[007c] Function:
+    [007c] 1af224de  r15 = NEXT_PC + 0x48 = 0xc8
+    [0084] 12dd5cfd  r13 = 0xf4e3d2c1
+
+    [00a4] 1befc402  r14 = BYTESWAP32(LOAD_MEM[r15])
+    [00a8] 12ed9164  r14 ^= r13
+    [00ac] 1cfe330a  STORE_MEM[r15] = BYTESWAP32(r14)
+    [00b0] 1de18adb  r14 <<= 24
+    [00b4] 19e18140  r14 >>= 24
+    [00b8] 08e7fe28  v19=1 ; v20 = r14 - 0x7f
+    [00bc] 150000c8  if(r14 > 0x7f) goto 00c8
+    [00c0] 0cf0461a  r15 += 0x4
+    [00c4] 180000a4  goto 00a4
+
+    // DEOBFUSCATED@00c8
+        for (r3 = 0;;) {
+            STORE_MEM[r1] = (LOAD_MEM[r0] * 3) ^ 0xff
+            r3 ++;
+            if(r3 == 0x50) return
+            r0 ++
+            r1 ++
+        }
+
+[00fc]Function:
+    [00fc] 1aff654e  r15 = NEXT_PC + 0x48 = 0x148
+    [0104] 12dd87eb  r13 == 0xa1b2c3d4
+    [0124] 1bef266f  r14 = BYTESWAP32(LOAD_MEM[r15])
+    [0128] 12ed1354  r14 ^= r13
+    [012c] 1cfead1f  STORE_MEM[r15] = BYTESWAP32(r14)
+    [0130] 1de18dcc  r14 <<= 24
+    [0134] 19e180d8  r14 >>= 24
+    [0138] 08e7f223  v19=1 ; v20 = r14 - 0x7f
+    [013c] 15000148  if(v20 > 0) goto 0148
+    [0140] 0cf04444  r15 += 0x4
+    [0144] 18000124  goto 0124
+    // DEOBFUSCATED@0148
+        r6 = r0 + 0x60
+        r7 = r0
+        for (r15 = 0; r15 != 0x20; r15++) {
+            r5 = 0
+            do {
+                STORE_MEM[r1 + r5] = LOAD_MEM[r0 + r5]
+                r5 ++
+            } while (r5 != 0x10)
+            r3 = r0 + 0x50
+            r4 = r0
+            r5 = r7
+            STORE_MEM128[r5] = aesenc(READ_MEM128[r3], READ_MEM128[r4])
+            [0198] 00303373  r3 = r0 + 0x40
+            [01a0] 00462b98  r4 = r6 + 0x10
+            [01a8] 00575618  r5 = r7 + 0x50
+            [01b0] 1e5346f1  STORE_MEM128[r5] = aesenc(READ_MEM128[r3], READ_MEM128[r4])
+            [01b4] 0030a13f  r3 = r0 + 0x30
+            [01bc] 004681f0  r4 = r6 + 0x10
+            [01c4] 0057357c  r5 = r7 + 0x40
+            [01cc] 1e534ef2  STORE_MEM128[r5] = aesenc(READ_MEM128[r3], READ_MEM128[r4])
+            [01d0] 003055da  r3 = r0 + 0x20
+            [01d8] 00405b14  r4 = r0 + 0x30
+            [01e0] 00576b94  r5 = r7 + 0x30
+            [01e8] 1e534e81  STORE_MEM128[r5] = aesenc(READ_MEM128[r3], READ_MEM128[r4])
+            [01ec] 00300a50  r3 = r0 + 0x10
+            [01f4] 004601e0  r4 = r6
+            [01f8] 0057fe6a  r5 = r7 + 0x20
+            [0200] 1e534270  STORE_MEM128[r5] = aesenc(READ_MEM128[r3], READ_MEM128[r4])
+            [0204] 0031a522  r3 = r1
+            [0208] 00463516  r4 = r6
+            [020c] 0057d747  r5 = r7 + 0x10
+            [0214] 1e534b5e  STORE_MEM128[r5] = aesenc(READ_MEM128[r3], READ_MEM128[r4])
+        }
+        return
+
+[022c] 0f0ff034  r0 ++
+[0230] 0f02eb85  r0 ++
+[0234] 0f0a827f  r0 ++
+[0238] 0f007d44  r0 ++
+[023c] 0f03889a  r0 ++
+[0240] 0f0fba1a  r0 ++
+[0244] 0f0f898b  r0 ++
+[0248] 0f092df4  r0 ++
+[024c] 0f080a97  r0 ++
+[0250] 0f0f5566  r0 ++
+[0254] 0f0c23b3  r0 ++
+[0258] 0f0bd6fb  r0 ++
+[025c] 0f098333  r0 ++
+[0260] 0f0a943f  r0 ++
+[0264] 0f00c1e3  r0 ++
+[0268] 0f00c85f  r0 ++
+[026c] 0f07d488  r0 ++
+[0270] 0f065c23  r0 ++
+[0274] 0f0ede43  r0 ++
+[0278] 62affa25  r6 ^= 0x7E0233A2
+[027c] cf2c947c  r0 ^= 0x92201356
+[0280] bc9ca58d  r6 ^= 0x66601391
+[0284] f4de7067  r15 ^= 0x727C2426
+
+[0288] Function:                        Init_crypto_ctx
+    while ((r7 = LOAD_MEM[r0]) != 0) {
+        for (r6 = 0; r6 != 0x10; r6++) {
+            r3 = (((r7 + r6) * 0xd) ^ 0x25) % 0xff
+            r4 = ((r6 + r2) % 0x10) + r1
+            MEM[r4] ^= r3
+        }
+        r0 ++
+        r2 ++
+    }
+    return
+
+[02e8] Function:                    is_equal(mem@r0, mem@r1, size=r2)
+    [02e8] 1afd59e8  r15 = NEXT_PC
+    [02ec] 0cf4832f  r15 += 0x48
+    [02f0] 12ddb827  r13 ^= r13
+    [02f4] 13daa8b0  r13 ^= 0xaa
+    [02f8] 1dd08236  r13 <<= 8
+    [02fc] 13dbbc6b  r13 ^= 0xbb
+    [0300] 1dd084b5  r13 <<= 8
+    [0304] 13dccb28  r13 ^= 0xcc
+    [0308] 1dd088de  r13 <<= 8
+    [030c] 13ddd239  r13 ^= 0xdd
+
+    [0310] 1bef3d37  r14 = BYTESWAP32(LOAD_MEM[r15])
+    [0314] 12ed59e5  r14 ^= r13
+    [0318] 1cfe7d0c  STORE_MEM[r15] = BYTESWAP32(r14)
+    [031c] 1de1895e  r14 <<= 24
+    [0320] 19e18f74  r14 >>= 24
+    [0324] 08e7f6c9  v19=1 ; v20 = r14 - 0x7f
+    [0328] 15000334  if(v20 > 0) goto 0334
+    [032c] 0cf04a16  r15 += 0x4
+    [0330] 18000310  goto 0310
+    // DEOBFUSCATED@0334
+
+        for (r3 = 0; r3 != r2; r3++) {
+            r4 = r0 + r3
+            r5 = r1 + r3
+            r4 = LOAD_MEM[r4]
+            r5 = LOAD_MEM[r5]
+            if(r4 != r5) return r0=0;
+        }
+        [0368] 18000370  return r0=1;
+
+[0374] Function:                    MEM[@r1] = unhexlify(MEM[@r0], until \0) ; return 1 if success
+    for (r3 = 0;; r3++) {
+        r2 = LOAD_MEM[r0 + r3]
+        if(r2 == 0x0) return 1
+        if(r2 <= 0x39) {
+            if(r2 < 0x30) return 0
+            r2 -= 0x30
+        } else {
+            if(r2 > 0x66) return 0
+            if(r2 < 0x61) return 0
+            r2 -= 0x57
+        }
+        r4 = r3 % 2
+        if (r4 != 1) {
+            r2 *= 16
+            r5 = r2
+        } else {
+            r2 ^= r5
+            r4 = (r3 / 2) + r1
+            STORE_MEM[r4] = r2
+        }
+    }

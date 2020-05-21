@@ -1,0 +1,89 @@
+Vous suivez un cours de sécurité informatique dans une célèbre université. Pour faciliter l'échange de documents, votre professeur a mis en ligne un service pour déposer les devoirs au format PDF.
+
+Hacker dans l'âme, vous voulez évaluer la sécurité de ce système. Vous savez que votre professeur consulte fréquemment ce service, et vous l'avez vu utiliser le lecteur muPDF sur son ordinateur. Vous avez par ailleurs réussi à intercepter les fichiers message.tex et message.pdf envoyés par le directeur de l'université à votre professeur qui indique un deuxième échange de fichier. Grâce à vos incroyables talents, vous avez également intercepté ce deuxième fichier (flag.pdf), mais celui-ci est malheureusement protégé par un mot de passe que vous ne connaissez pas. Saurez-vous malgré tout lire le contenu de ce fichier ?
+
+Note : Les PDFs acceptés sont limités à 8ko.
+
+URL : http://challenges2.france-cybersecurity-challenge.fr:6003/
+
+
+
+LaTeX :
+
+\special{dvipdfmx:config z 0}
+% \special{pdf:encrypt ownerpw (password) userpw (password) length 128 perm 2052}
+
+
+https://tex.stackexchange.com/questions/24210/is-there-a-package-to-secure-rendered-pdf-with-a-password
+
+/usr/share/texmf-dist/dvipdfmx/dvipdfmx.cfg
+    %% Key bits for PDF encryption (40 - 128)
+    K  40
+    %% Permission flag for PDF encryption: Revision will be 3 if the key size
+    %% is greater than 40 bits.
+    %%
+    %% 0x0004 (Revision 2) Print the document.
+    %%        (Revision 3) Print the document (possibly not at the highest quality
+    %%        level, depending on whether bit 12[0x0800] is also set).
+    %% 0x0008 Modify the contents of the document by operations other than those
+    %%        controlled by bits 6[0x0020], 9[0x0100], and 11[0x0400].
+    %% 0x0010 (Revision 2) Copy or otherwise extract text and graphics from the
+    %%        document, including extracting text and graphics (in support of
+    %%        accessibility to disabled users or for other purposes).
+    %%        (Revision 3) Copy or otherwise extract text and grphics from the
+    %%        document by operations other than that controlled by bit 10[0x0200].
+    %% 0x0020 Add or modify text annotations, fill in interactive form fields,
+    %%        and, if bit 4[0x0008] is also set, create or modify interactive
+    %%        form fields (including signature fields).
+    %%
+    %% (Revision 3 only)
+    %% 0x0100 Fill in existing interactive form fields (including signature
+    %%        fields), even if bit 6 is clear.
+    %% 0x0200 Extract text and graphics (in support of accessibility to disabled
+    %%        users or for other purposes).
+    %% 0x0400 Assemble the document (insert, rotate, or delete pages and create
+    %%        bookmarks or thumbnail images), even if bit 4 is clear.
+    %% 0x0800 Print the document to a representation from which a faithful digital
+    %%        copy of the PDF content could be generated. When this bit is clear
+    %%        (and bit 3 is set), printing is limited to a low-level representation
+    %%        of the appearance, possibly of degraded quality.
+
+    P  0x003C
+
+2052 = 0x804
+
+/usr/share/texmf-dist/tex/xelatex/bidi/bidi.sty
+    \pdfencryptsetup{%
+      userpassword,%
+      ownerpassword,%
+      keylength,%
+      permissionflags%
+    }
+
+    \newcommand*{\pdfencryptsetup}{\setkeys{bidi@pdfencrypt}}
+
+    \special{pdf:encrypt
+          userpw (\bidi@pdfencrypt@userpassword)
+          ownerpw (\bidi@pdfencrypt@ownerpassword)
+          length \bidi@pdfencrypt@keylength
+          perm \bidi@pdfencrypt@permissionflags
+        }
+
+mupdf -p abc message.pdf : works
+    source/pdf/pdf-crypt.c
+    PDF_CRYPT_AESV2
+
+https://github.com/TeX-Live/texlive-source/blob/de491d5ed61a7dc8192798768d0af121f9973b8a/texk/dvipdfm-x/pdfencrypt.c
+    pdf_enc_set_passwd (unsigned int bits, unsigned int perm,
+                    const char *oplain, const char *uplain)
+
+
+pdf2john.py:
+    https://github.com/magnumripper/JohnTheRipper/blob/f6f252bfed9451402fb8a9a911e97ddf32cc5adb/run/pdf2john.py
+
+=> tester dans une VM Kali
+
+
+
+
+solution : https://www.areizen.fr/post/it101/

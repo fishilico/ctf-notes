@@ -1,0 +1,111 @@
+Build string (NtBuildLab)     : 7601.23915.x86fre.win7sp1_ldr.17
+
+=> Win7SP1x64_23418
+
+
+volatility -f /tmp/memory.dmp --profile=Win7SP1x86_23418 kdbgscan
+    Instantiating KDBG using: Kernel AS Win7SP1x86_23418 (6.1.7601 32bit)
+    Offset (V)                    : 0x8273ac78
+    Offset (P)                    : 0x273ac78
+    KDBG owner tag check          : True
+    Profile suggestion (KDBGHeader): Win7SP1x86_24000
+    Version64                     : 0x8273ac50 (Major: 15, Minor: 7601)
+    Service Pack (CmNtCSDVersion) : 1
+    Build string (NtBuildLab)     : 7601.23915.x86fre.win7sp1_ldr.17
+    PsActiveProcessHead           : 0x827534f0 (49 processes)
+    PsLoadedModuleList            : 0x8275ae30 (145 modules)
+    KernelBase                    : 0x8260e000 (Matches MZ: True)
+    Major (OptionalHeader)        : 6
+    Minor (OptionalHeader)        : 1
+    KPCR                          : 0x8273bd00 (CPU 0)
+
+volatility -f /tmp/memory.dmp --profile=Win7SP1x86_23418 --kdbg 0x8273ac78 --kpcr 0x8273bd00
+
+volatility -f /tmp/memory.dmp --profile=Win7SP1x86_23418 --kdbg 0x8273ac78 --kpcr 0x8273bd00 pslist > pslist.txt
+
+volatility -f /tmp/memory.dmp --profile=Win7SP1x86_23418 --kdbg 0x8273ac78 --kpcr 0x8273bd00 lsadump
+Volatility Foundation Volatility Framework 2.6.1
+DefaultPassword
+0x00000000  12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+0x00000010  50 00 61 00 73 00 73 00 77 00 30 00 72 00 64 00   P.a.s.s.w.0.r.d.
+0x00000020  21 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   !...............
+
+_SC_OpenSSHd
+0x00000000  14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+0x00000010  44 00 40 00 72 00 6a 00 33 00 33 00 6c 00 31 00   D.@.r.j.3.3.l.1.
+0x00000020  6e 00 67 00 00 00 00 00 00 00 00 00 00 00 00 00   n.g.............
+
+DPAPI_SYSTEM
+0x00000000  2c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ,...............
+0x00000010  01 00 00 00 87 bb 00 13 2b 5e 4a 9a 7f 55 d0 8d   ........+^J..U..
+0x00000020  d7 26 6c 9f b0 de 69 88 a7 13 3b e4 30 67 f7 a2   .&l...i...;.0g..
+0x00000030  f1 09 98 76 c6 a3 2f cc f9 eb 90 df 00 00 00 00   ...v../.........
+
+
+consoles:
+    **************************************************
+    ConsoleProcess: conhost.exe Pid: 3428
+    Console: 0xbe81c0 CommandHistorySize: 50
+    HistoryBufferCount: 1 HistoryBufferMax: 4
+    OriginalTitle: C:\Users\IEUser\Desktop\update_v0.5.exe
+    Title: C:\Users\IEUser\Desktop\update_v0.5.exe
+    AttachedProcess: update_v0.5.ex Pid: 3388 Handle: 0x5c
+    ----
+    CommandHistory: 0x309a78 Application: update_v0.5.exe Flags: Allocated
+    CommandCount: 0 LastAdded: -1 LastDisplayed: -1
+    FirstCommand: 0 CommandCountMax: 50
+    ProcessHandle: 0x5c
+    ----
+    Screen 0x2f60a0 X:80 Y:300
+    Dump:
+            ENCRYPTOR v0.5                                                          
+                                                                                    
+    [info] entering the folder : ./                                                 
+    [info] file encryptable found : ./flag.txt                                      
+                                                                                    
+    ****Chiffrement termin??e ! Envoyez l'argent !                                  
+    **************************************************
+
+filescan:
+    0x000000003ed139f0      2      0 RW-rw- \Device\HarddiskVolume1\Users\IEUser\Desktop\flag.txt.enc
+
+
+% volatility -f /tmp/memory.dmp --profile=Win7SP1x86_23418 --kdbg 0x8273ac78 --kpcr 0x8273bd00 dumpfiles -D dumped -n -r '.*Desktop.*'
+Volatility Foundation Volatility Framework 2.6.1
+DataSectionObject 0x84f13898   3388   \Device\HarddiskVolume1\Users\IEUser\Desktop\key.txt
+SharedCacheMap 0x84f13898   3388   \Device\HarddiskVolume1\Users\IEUser\Desktop\key.txt
+ImageSectionObject 0x84f66b60   3388   \Device\HarddiskVolume1\Users\IEUser\Desktop\update_v0.5.exe
+DataSectionObject 0x84f66b60   3388   \Device\HarddiskVolume1\Users\IEUser\Desktop\update_v0.5.exe
+ImageSectionObject 0x8530b1e8   2208   \Device\HarddiskVolume1\Users\IEUser\Desktop\DumpIt.exe
+DataSectionObject 0x8530b1e8   2208   \Device\HarddiskVolume1\Users\IEUser\Desktop\DumpIt.exe
+
+
+
+Dump malware:
+    0x83de43a8 update_v0.5.ex         3388   1432      2       61      1      0 2020-04-13 18:38:00 UTC+0000
+
+volatility -f /tmp/memory.dmp --profile=Win7SP1x86_23418 --kdbg 0x8273ac78 --kpcr 0x8273bd00 procdump -p 3388 -D procdump --fix
+
+
+  v5 = strlen(g_KEY);
+  v4 = fread(v6_new_data, 1u, v7, v9);
+  for ( i = 0; i < (signed int)v7; ++i )
+    v6_new_data[i] ^= g_KEY[(i + 2) % v5_lenkey];
+  for ( j = 0; j < (signed int)v7; ++j )
+    putc((char)v6_new_data[j], v8);
+
+KEY = '0ba883a22afb84506c8d8fd9e42a5ce4e8eb1cc87c315a28dd'
+
+::
+
+    volatility -f /tmp/memory.dmp --profile=Win7SP1x86_23418 --kdbg 0x8273ac78 --kpcr 0x8273bd00 dumpfiles -D dumped -n -Q 0x000000003ed139f0
+    xxd -a file.None.0x855651e0.flag.txt.enc.dat
+
+    00000000: 277b 6b70 1a01 0055 0507 5d0c 5355 0555  '{kp...U..].SU.U
+    00000010: 095d 595e 065c 0402 0654 0751 0055 015e  .]Y^.\...T.Q.U.^
+    00000020: 5557 525b 575c 5154 5007 5107 0b5e 5551  UWR[W\QTP.Q..^UQ
+    00000030: 5556 0259 5a07 0502 5751 5201 0f03 5702  UV.YZ...WQR...W.
+    00000040: 0601 5a50 0f1b 6e00 0000 0000 0000 0000  ..ZP..n.........
+    00000050: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+    *
+    00000ff0: 0000 0000 0000 0000 0000 0000 0000 0000  ................

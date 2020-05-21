@@ -1,0 +1,5 @@
+L'exercice n'est pas très risqué : retrouver simplement le contenu du fichier flag.
+
+Service : nc challenges1.france-cybersecurity-challenge.fr 4004
+
+SHA256(risky-business) = 0d88bfced59be34308a96b888960d4f27b7b948cb5f2d4c6c763ce7681f628da.

@@ -1,0 +1,3 @@
+On vous demande d'auditer cette solution de vérification syntaxique en Rust.
+
+Lien : http://challenges2.france-cybersecurity-challenge.fr:6005/

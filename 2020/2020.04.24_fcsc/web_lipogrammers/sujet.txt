@@ -1,0 +1,23 @@
+Lipogrammeurs
+100
+
+web lipogramme
+Vous avez trouvé cette page qui vous semble étrange. Pouvez-vous nous convaincre qu'il y a effectivement un problème en retrouvant le flag présent sur le serveur ?
+
+URL : http://challenges2.france-cybersecurity-challenge.fr:5008/
+
+<?php
+    if (isset($_GET['code'])) {
+        $code = substr($_GET['code'], 0, 250);
+        if (preg_match('/a|e|i|o|u|y|[0-9]/i', $code)) {
+            die('No way! Go away!');
+        } else {
+            try {
+                eval($code);
+            } catch (ParseError $e) {
+                die('No way! Go away!');
+            }
+        }
+    } else {
+        show_source(__FILE__);
+    }

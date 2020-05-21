@@ -1,0 +1,13 @@
+CryptoLocker
+100
+
+forensics mémoire ransomware reverse
+Un de nos admins nous a appelé en urgence suite à un CryptoLocker qui s'est lancé sur un serveur ultra-sensible, juste après avoir appliqué une mise à jour fournie par notre prestataire informatique.
+
+Ce malware vise spécifiquement un fichier pouvant faire perdre des millions d'euros à notre entreprise : il est très important de le retrouver !
+
+L'administrateur nous a dit que pour éviter que le logiciel ne se propage, il a mis en pause le serveur virtualisé et a récupéré sa mémoire vive dès qu'il a détecté l'attaque.
+
+Vous êtes notre seul espoir.
+
+SHA256(memory1.dmp.gz) = 39e31ca61067e51f9566f0b669ac1ddbd09924a6f7720dcb08c9ac46cee186f5.

@@ -1,0 +1,11 @@
+Une personne de votre entourage ne jure que par le traitement du signal analogique. Pour lui montrer certains des avantages du traitement du signal numérique, vous décidez de le mettre au défi : il doit émettre des annonces Bluetooth Low Energy sur chacun des canaux d'annonce, tandis que vous ne disposez que d'une radio logicielle pour les capturer tous.
+
+Vous lui montrez alors qu'en désactivant le filtre anti-repliement de l'étage d'entrée, vous arrivez à capturer toutes les communications.
+
+La capture fournie (ble.sig) a été faite en désactivant le filtre anti-repliement, à la fréquence centrale 2461MHz et avec un taux d'échantillonnage de 20MHz.
+
+SHA256(ble.sig) = ae427526808cf425a2f2ac818d0612d88cbaa3e5ae12c27ac58cb3dde65b3993.
+
+Note : Le format de fichier est une capture au format IQ, avec chaque échantillon I et Q un nombre flottant de 32 bits. Les logiciels de traitement du signal standard n'ont pas de problème à ingérer ce format.
+
+Note 2: Pour ouvrir ce fichier avec numpy, il faut utiliser le format complex64 : numpy.fromfile(<filename>, dtype = numpy.complex64). Pour utiliser le logiciel GNURadio, il faut utiliser le bloc File Source et le format complex.

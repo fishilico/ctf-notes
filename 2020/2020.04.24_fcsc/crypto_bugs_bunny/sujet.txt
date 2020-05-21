@@ -1,0 +1,13 @@
+Le service RSSI de votre entreprise a besoin de votre expertise en cryptographie. La confidentialité du fichier chiffré flag.txt.enc.b64 a été compromise, indiquant qu'un attaquant a réussi à casser RSA-4096.
+
+Une première analyse faite par votre stagiaire indique que le seul processus d'intérêt qui tournait était /usr/local/bin/python3.8. Des signes de compromissions indiquent potentiellement l'installation d'une backdoor. On vous fournit ce binaire ainsi qu'un accès au prompt Python. (Note : il est inutile de regarder à l'extérieur du prompt Python pour cette épreuve, ni même d'essayer d'en sortir).
+
+On vous donne également accès à l'oracle de signature exploité par l'attaquant qui tourne sur la machine compromise (oracle.py).
+
+Votre but est de comprendre comment l'attaquant a procédé et de déchiffrer flag.txt.enc.b64 à votre tour.
+
+Services :
+
+Python : nc challenges1.france-cybersecurity-challenge.fr 2003
+Signature : nc challenges1.france-cybersecurity-challenge.fr 2004
+SHA256(python3.8) = 9f8be8062b6ffaa92ed281fd912baab0d08c0deca2798800822e9318a1086d76.

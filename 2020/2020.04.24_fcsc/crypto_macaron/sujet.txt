@@ -1,0 +1,3 @@
+Le but du challenge est de trouver une contrefaçon sur le code d'authentification de message Macaron.
+
+Service : nc challenges1.france-cybersecurity-challenge.fr 2005

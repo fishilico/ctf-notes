@@ -1,0 +1,4 @@
+Write-ups:
+
+* https://github.com/tchup-dev/FCSC-2020/blob/master/ble.md
+* https://github.com/loulous24/FCSC2020/blob/master/WU_hardware.md

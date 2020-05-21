@@ -1,0 +1,111 @@
+Sujet:
+
+    tag = macaron.tag(message)
+    print("Tag hash:  {}".format(tag[0].hex()))
+    print("Tag nonce: {}".format(tag[1].hex()))
+    L.append(message)
+
+    self.cs  =  2   # 16-bit integers
+    self.ps  = 30   # Block size : 30 bytes
+    self.ts  = 32   # tag size : 32 bytes
+    self.ctr = 0
+    self.k1  = k1
+    self.k2  = k2
+
+
+    def tag(self, input):
+        m = pad(input, 2 * self.ps)  # from Crypto.Util.Padding import pad : PKCS#7 padding => pad 60 bytes
+        nb_blocks = len(m) // self.ps
+
+        tag_hash = bytearray(self.ts)
+        nonce_block = long_to_bytes(self.ctr, self.cs)  # nonce = ctr as 2 bytes, Big Endian
+        prev_block = nonce_block + m[:self.ps]      # 32 bytes
+        tag_nonce = nonce_block
+        self.ctr += 1
+
+        for i in range(nb_blocks - 1):
+            nonce_block = long_to_bytes(self.ctr, self.cs)
+            next_block = nonce_block + m[self.ps*(i+1):self.ps*(i+2)]
+            big_block = prev_block + next_block     # big 64-bytes block
+            digest = hmac.new(self.k1, big_block, sha256).digest()
+            tag_hash = bytearray([x ^ y for (x,y) in zip(tag_hash, digest)])  # tag_hash xored with previous
+            prev_block = next_block
+            tag_nonce  = tag_nonce + nonce_block    # add nonce to tag_nonce (2 bytes per block)
+            self.ctr += 1
+
+        tag_hash = hmac.new(self.k2, tag_hash, sha256).digest()     # hmac with k2
+        return tag_hash, tag_nonce
+
+=> collision on tag_hash ?
+
+
+    def verify(self, input, tag):
+        m = pad(input, 2 * self.ps)
+        tag_hash, tag_nonce = tag
+
+        nb_blocks_m = len(m) // self.ps
+        nb_blocks_nonce = len(tag_nonce) // self.cs
+
+        if nb_blocks_nonce != nb_blocks_m:
+            return False
+
+        if len(tag_nonce) % self.cs != 0 or len(tag_hash) % self.ts != 0:
+            return False
+
+        tag_hash_ = bytearray(self.ts)
+        prev_block = tag_nonce[:self.cs] + m[:self.ps]
+
+        for i in range(nb_blocks_m - 1):
+            next_block =  tag_nonce[self.cs*(i+1):self.cs*(i+2)] + m[self.ps*(i+1):self.ps*(i+2)]
+            big_block = prev_block + next_block
+            digest = hmac.new(self.k1, big_block, sha256).digest()
+            tag_hash_ = bytearray([x ^ y for (x,y) in zip(tag_hash_, digest)])
+            prev_block = next_block
+
+        tag_hash_recomputed = hmac.new(self.k2, tag_hash_, sha256).digest()
+        return (tag_hash == tag_hash_recomputed)
+
+
+=> si 3 blocks identiques avec tags identiques, on a tag_hash_ = que des zéros => comme si aucun bloc
+
+=> si 4 blocks identiques, => comme le premier seul
+
+MAIS arrondi à 60 bytes ! donc nb pair de blocs
+
+Message 1 = B1+B2 => hash(B1B2)
+Message 2 = B1+B2+B2+B2 => hash(B1B2)^hash(B2B2)^hash(B2B2)
+
+>>> pad(b'a'*21, 30)
+b'aaaaaaaaaaaaaaaaaaaaa\t\t\t\t\t\t\t\t\t'
+
+=> tag aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+=> verify aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa									aaaaaaaaaaaaaaaaaaaaa									aaaaaaaaaaaaaaaaaaaaa
+
+
+nc challenges1.france-cybersecurity-challenge.fr 2005
+Commands are:
+|-> t tag a message
+|-> v verify a couple (message, tag)
+|-> q Quit
+>>> t
+Input the message:
+>>> aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Tag hash:  d2084e99e339334da7e40c307ed3d9f1f4678a1ba0131181116787a59a9b8574
+Tag nonce: 00000001
+Commands are:
+|-> t tag a message
+|-> v verify a couple (message, tag)
+|-> q Quit
+>>> v
+Input the message to verify:
+>>> aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa									aaaaaaaaaaaaaaaaaaaaa									aaaaaaaaaaaaaaaaaaaaa
+Input the associated tag hash:
+>>> d2084e99e339334da7e40c307ed3d9f1f4678a1ba0131181116787a59a9b8574
+Input the associated tag nonce:
+>>> 0000000100010001
+Congrats!! Here is the flag: FCSC{529d5fb1ea316b2627c16190060af9f70dc420438afa7e8eb71d144a54a0}
+Commands are:
+|-> t tag a message
+|-> v verify a couple (message, tag)
+|-> q Quit
+>>> 

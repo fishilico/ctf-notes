@@ -1,0 +1,5 @@
+Lors de l’investigation d’un poste GNU/Linux, vous analysez un nouveau fichier qui semble être généré par un programme d’enregistrement de frappes de clavier. Retrouvez ce qui a bien pu être écrit par l’utilisateur de ce poste à l’aide de ce fichier !
+
+Format du flag : FCSC{xxx}, où xxx est la chaîne que vous aurez trouvée.
+
+SHA256(petite_frappe_2.txt) = 5e7c0dd3f0b0b3dceb8758443d22e1bc0ba50a8277d20cbcd309f7c7d96507bf

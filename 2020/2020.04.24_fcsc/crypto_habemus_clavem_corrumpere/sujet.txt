@@ -1,0 +1,9 @@
+Habemus Clavem Corrumpere
+500
+
+crypto forensics
+On vous demande d’analyser a posteriori une page mémoire extraite d’une machine compromise.
+
+Beaucoup de données ont été effacées, mais il est primordial pour votre interlocuteur de récupérer un flag qu'il était sur le point de déchiffrer.
+
+SHA256(mempage.bin) = 0065b0c346e5b94403a0bb30b25de92f3e7f52cd4583a9c4d0506d110e7e9730

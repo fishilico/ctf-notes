@@ -1,0 +1,12 @@
+sCANdALeux
+200
+hardware
+Vous avez récemment acheté un contrôleur universel pour ouvrir votre porte automatiquement. Seulement quand vous l'utilisez, toutes les portes automatiques des habitations alentours s'ouvrent au même moment. Pour percer ce mystère, vous décidez de capturer le signal émis par votre contrôleur.
+
+Vous avez sorti votre radio logicielle préférée et fait une capture du signal émis à 434MHz, avec un taux d'échantillonnage de 1MHz.
+
+Note : Pour ouvrir ce fichier avec numpy, il faut utiliser le format complex64 : numpy.fromfile(<filename>, dtype = numpy.complex64). Pour utiliser le logiciel GNURadio, il faut utiliser le bloc File Source et le format complex.
+
+Note 2: Pour commencer à analyser la capture, vous pouvez utiliser ce flowgraph dans GNU Radio : 
+
+SHA256(open-the-door.iq) = 98fec9ecbd9bf6e4d59b71b142f9ef9335ee84186490e1f4082e920198b23a10.

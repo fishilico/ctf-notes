@@ -1,0 +1,21 @@
+Run a VM in 2048 bytes of 32-bit opcodes
+
+dword_203040 : 16 registers
+
+opcodes : many XOR
+
+init :
+    r8 = offset user (copied into data)
+    r9 = strlen(user)
+    r10 = offset serial (copied into data)
+    r11 = strlen(serial)
+    r12 = offset after serial
+
+result: r0
+
+
+
+Write-ups:
+
+* https://github.com/balayette/bn-keykoolol (Binary Ninja disassembler)
+* https://ctf.feisu.win/2020/fcsc_prequals_2020/keykoolol

